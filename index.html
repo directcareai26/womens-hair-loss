@@ -693,6 +693,76 @@
     .prod-card[style*="grid-template-columns: 96px 1fr auto"] .doses { justify-content: center; }
     .prod-card[style*="grid-template-columns: 96px 1fr auto"] .btn { width: 100%; }
   }
+
+  /* ============== LIFESTYLE IMAGE PATTERNS ============== */
+  /* Wide lifestyle banner with overlaid caption */
+  .lifestyle-band { padding: 0 0 clamp(40px, 6vw, 72px); position: relative; }
+  .lifestyle-band .lifestyle-frame { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 21/9; isolation: isolate; }
+  .lifestyle-band .lifestyle-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .lifestyle-band .lifestyle-frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,15,36,0) 35%, rgba(26,15,36,0.55) 100%), linear-gradient(90deg, rgba(26,15,36,0.45) 0%, transparent 55%); z-index: 1; pointer-events: none; }
+  .lifestyle-band .lifestyle-caption { position: absolute; left: clamp(22px, 4vw, 56px); bottom: clamp(22px, 4vw, 48px); right: clamp(22px, 4vw, 56px); z-index: 2; color: white; max-width: 620px; }
+  .lifestyle-band .lifestyle-caption .eyebrow { background: rgba(255,255,255,0.14); color: #f7e8ff; border-color: rgba(255,255,255,0.30); }
+  .lifestyle-band .lifestyle-caption h3 { font-family: 'Manrope', 'Inter', sans-serif; font-size: clamp(1.5rem, 3vw, 2.4rem); color: white; line-height: 1.1; margin-top: 14px; text-shadow: 0 2px 18px rgba(0,0,0,0.35); }
+  .lifestyle-band .lifestyle-caption p { color: rgba(255,255,255,0.92); margin-top: 10px; font-size: clamp(0.95rem, 1.4vw, 1.06rem); text-shadow: 0 1px 12px rgba(0,0,0,0.4); }
+  @media (max-width: 600px) {
+    .lifestyle-band .lifestyle-frame { aspect-ratio: 4/5; }
+  }
+
+  /* Scalp split — two close-up photos side by side */
+  .scalp-split { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 28px; }
+  @media (max-width: 760px) { .scalp-split { grid-template-columns: 1fr; gap: 16px; } }
+  .scalp-card { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-soft); aspect-ratio: 1/1; isolation: isolate; }
+  .scalp-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .scalp-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,15,36,0) 45%, rgba(26,15,36,0.65) 100%); z-index: 1; pointer-events: none; }
+  .scalp-card .scalp-label { position: absolute; left: 22px; right: 22px; bottom: 22px; z-index: 2; color: white; }
+  .scalp-card .scalp-label .tag { display: inline-block; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 800; padding: 5px 12px; border-radius: 999px; background: rgba(255,255,255,0.16); color: #f7e8ff; backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.20); }
+  .scalp-card .scalp-label h4 { font-family: 'Manrope', sans-serif; font-size: 1.1rem; font-weight: 800; color: white; margin-top: 10px; line-height: 1.2; text-shadow: 0 1px 12px rgba(0,0,0,0.5); }
+
+  /* Step card with image header */
+  .step-card.with-image { padding: 0; overflow: hidden; }
+  .step-card.with-image .step-img-wrap { display: block; height: 220px; overflow: hidden; }
+  .step-card.with-image .step-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .step-card.with-image .step-body { padding: 28px 32px 32px; }
+  .step-card.with-image .step-num { margin-bottom: 8px; font-size: 2.8rem; }
+  @media (max-width: 760px) {
+    .step-card.with-image .step-body { padding: 24px 26px 28px; }
+    .step-card.with-image .step-img-wrap { height: 180px; }
+  }
+
+  /* Value prop image card with photo */
+  .vp-image-card.with-photo { padding: 0; aspect-ratio: 1/1.05; isolation: isolate; }
+  .vp-image-card.with-photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; z-index: 0; border-radius: var(--radius-lg); }
+  .vp-image-card.with-photo::before { background: linear-gradient(180deg, rgba(26,15,36,0) 35%, rgba(26,15,36,0.45) 100%); z-index: 1; }
+  .vp-image-card.with-photo .timer-overlay { position: absolute; left: 22px; right: 22px; bottom: 22px; z-index: 2; padding: 22px 24px 20px; background: rgba(255,255,255,0.94); backdrop-filter: blur(10px); border-radius: 18px; box-shadow: 0 16px 40px -10px rgba(118,43,164,0.35); border: 1px solid rgba(255,255,255,0.5); }
+  .vp-image-card.with-photo .timer-overlay .timer-cap { color: var(--brand-deep); text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.74rem; font-weight: 800; display: block; }
+  .vp-image-card.with-photo .timer-overlay .timer-line { font-family: 'Manrope', sans-serif; font-weight: 900; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1; margin: 8px 0 6px; background: linear-gradient(135deg, var(--brand), var(--brand-darker)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; display: inline-flex; align-items: baseline; gap: 8px; }
+  .vp-image-card.with-photo .timer-overlay .timer-line small { font-size: 0.4em; color: var(--muted); font-weight: 700; -webkit-text-fill-color: var(--muted); background: none; }
+  .vp-image-card.with-photo .timer-overlay .timer-desc { color: var(--ink); font-weight: 600; font-size: 0.92rem; line-height: 1.4; margin-top: 4px; }
+
+  /* Meet your clinician section */
+  .meet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 72px); align-items: center; }
+  @media (max-width: 900px) { .meet-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .meet-photo { aspect-ratio: 4/5; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+  .meet-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .meet-list { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 18px; }
+  .meet-list li { display: flex; gap: 14px; align-items: flex-start; }
+  .meet-list .meet-mark { flex: 0 0 28px; height: 28px; border-radius: 50%; background: rgba(175,75,237,0.12); border: 1px solid rgba(175,75,237,0.25); display: grid; place-items: center; color: var(--brand-deep); font-weight: 900; }
+  .meet-list h4 { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 1.04rem; margin-bottom: 4px; color: var(--ink); }
+  .meet-list p { font-size: 0.96rem; line-height: 1.55; }
+
+  /* Power strip split with photo */
+  .power-strip.power-split { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(36px, 5vw, 64px); align-items: center; text-align: left; padding: clamp(48px, 6vw, 80px); }
+  @media (max-width: 900px) { .power-strip.power-split { grid-template-columns: 1fr; text-align: center; padding: clamp(48px, 8vw, 72px) clamp(28px, 5vw, 48px); } }
+  .power-strip.power-split p { margin: 18px 0 0; }
+  .power-strip.power-split .power-photo { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 30px 70px -20px rgba(0,0,0,0.45); aspect-ratio: 4/5; }
+  .power-strip.power-split .power-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .power-strip.power-split .power-cta { margin-top: 28px; }
+  @media (max-width: 900px) { .power-strip.power-split .power-photo { max-width: 380px; margin: 0 auto; aspect-ratio: 1/1; } }
+
+  /* Testimonial hero band sits flush above the marquee — smaller treatment */
+  .testimonial-band { margin: 0 0 36px; }
+  .testimonial-band .lifestyle-frame { aspect-ratio: 24/7; }
+  @media (max-width: 760px) { .testimonial-band .lifestyle-frame { aspect-ratio: 4/3; } }
 </style>
 </head>
 <body>
@@ -890,6 +960,20 @@
   </div>
 </div>
 
+<!-- ============ LIFESTYLE BAND — AGE-DIVERSE WOMEN ============ -->
+<section class="section lifestyle-band">
+  <div class="container">
+    <div class="lifestyle-frame">
+      <img src="https://crsurakhmbalgxim.public.blob.vercel-storage.com/age-diverse%20women.png" alt="DirectCare AI patients — confident women across ages and ethnicities" loading="lazy" />
+      <div class="lifestyle-caption">
+        <span class="eyebrow"><span class="dot"></span> Built for every season</span>
+        <h3>From postpartum to perimenopause to post-menopause.</h3>
+        <p>One protocol family, dosed by a US-licensed clinician for the trigger that's actually driving your shedding.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ IS THIS YOU? (QUALIFIER) ============ -->
 <section class="section" id="who">
   <div class="container">
@@ -1032,10 +1116,11 @@
           </div>
         </div>
       </div>
-      <div class="vp-image-card">
-        <div class="timer-pill">
-          <div class="timer-cap">Visible regrowth by</div>
-          <div class="timer-num">90<span style="font-size:0.4em; color:var(--muted);">days</span></div>
+      <div class="vp-image-card with-photo">
+        <img src="https://crsurakhmbalgxim.public.blob.vercel-storage.com/postpartum%20mother.png" alt="Postpartum mother holding her baby — DirectCare AI patient" loading="lazy" />
+        <div class="timer-overlay">
+          <span class="timer-cap">Visible regrowth by</span>
+          <div class="timer-line">90<small>days</small></div>
           <div class="timer-desc">Most women see reduced shedding within 30 days and visible new growth across the part by the end of month 3.</div>
         </div>
       </div>
@@ -1046,6 +1131,16 @@
 <!-- ============ PRODUCT CLUSTERS ============ -->
 <section class="section soft" id="products">
   <div class="container">
+    <div class="lifestyle-band" style="padding-bottom: clamp(48px, 6vw, 80px);">
+      <div class="lifestyle-frame">
+        <img src="https://crsurakhmbalgxim.public.blob.vercel-storage.com/flatlay%20of%20women%27s%20protocol%20bottles.png" alt="DirectCare AI women's hair regrowth protocol — compounded topical and oral bottles" loading="lazy" />
+        <div class="lifestyle-caption">
+          <span class="eyebrow"><span class="dot"></span> Inside the box</span>
+          <h3>Compounded for you. Shipped plain.</h3>
+          <p>Topical solutions, oral tablets, supplements, and clinical-strength shampoo — formulated to your trigger by a US licensed compounding pharmacy.</p>
+        </div>
+      </div>
+    </div>
     <div class="stack-head">
       <span class="eyebrow"><span class="dot"></span> The Protocols for Women</span>
       <h2 style="margin-top:22px;">Seven Protocols.<br/>One Won't Be Right For You.</h2>
@@ -1453,6 +1548,30 @@
       </div>
 
     </div>
+
+    <!-- Real scalps, real density — paired close-ups -->
+    <div style="margin-top: clamp(40px, 6vw, 64px); text-align: center;">
+      <span class="eyebrow"><span class="dot"></span> The result</span>
+      <h2 style="margin-top:18px; font-size:clamp(1.6rem, 3vw, 2.4rem);">A part that's quieter under bathroom light.</h2>
+      <p style="margin-top: 14px; max-width: 640px; margin-left: auto; margin-right: auto;">The visible signal of women's regrowth isn't more length — it's <strong style="color:var(--ink)">density along the part line</strong>. Fine new hairs filling the gap, scalp showing through less under direct light.</p>
+    </div>
+    <div class="scalp-split">
+      <div class="scalp-card">
+        <img src="https://crsurakhmbalgxim.public.blob.vercel-storage.com/hair%20part%20close-up%2C%20light%20skin.png" alt="Close-up of healthy hair part with new baby hairs" loading="lazy" />
+        <div class="scalp-label">
+          <span class="tag">Density along the part</span>
+          <h4>Fine new hairs filling the gap.</h4>
+        </div>
+      </div>
+      <div class="scalp-card">
+        <img src="https://crsurakhmbalgxim.public.blob.vercel-storage.com/hair%20part%20close-up%2C%20deeper%20skin%20tone%20for%20diversity.png" alt="Close-up of healthy hair part on darker skin tone" loading="lazy" />
+        <div class="scalp-label">
+          <span class="tag">Healthy scalp · all skin tones</span>
+          <h4>Built for every hair type and texture.</h4>
+        </div>
+      </div>
+    </div>
+
     <div style="text-align:center; margin-top:48px;">
       <a href="#quiz" class="btn btn-primary btn-primary-xl magnetic">Find My Protocol →</a>
       <p style="margin-top:14px; font-size:0.88rem; color:var(--muted);">60-second match · No charge if you don't qualify</p>
@@ -1576,9 +1695,15 @@
 <!-- ============ POWER STRIP ============ -->
 <section class="section">
   <div class="container">
-    <div class="power-strip">
-      <h2>Stop chasing the bottle.<br/>Start treating the cause.</h2>
-      <p>Hospital-grade compounding. Direct-to-your-door pricing. Built by the DirectCare AI clinical team — not Big Pharma marketing.</p>
+    <div class="power-strip power-split">
+      <div>
+        <h2 style="color:white;">Stop chasing the bottle.<br/>Start treating the cause.</h2>
+        <p>Hospital-grade compounding. Direct-to-your-door pricing. Built by the DirectCare AI clinical team — not Big Pharma marketing.</p>
+        <a href="#quiz" class="btn btn-ghost-light btn-primary-xl power-cta magnetic">Find My Protocol →</a>
+      </div>
+      <div class="power-photo">
+        <img src="https://crsurakhmbalgxim.public.blob.vercel-storage.com/perimenopausal%20woman.png" alt="Woman in her 40s checking her part in the mirror — DirectCare AI patient" loading="lazy" />
+      </div>
     </div>
   </div>
 </section>
@@ -1598,15 +1723,25 @@
         <h3>3-Minute Evaluation</h3>
         <p style="margin-top:10px;">Answer a few private questions and upload a quick photo of your scalp. No appointment. No waiting room. No drugstore counter conversation.</p>
       </div>
-      <div class="step-card">
-        <div class="step-num">02</div>
-        <h3>US Clinician Reviews</h3>
-        <p style="margin-top:10px;">A licensed DirectCare AI clinician reviews your case within 24 hours and prescribes the protocol that fits your pattern. Message them anytime.</p>
+      <div class="step-card with-image">
+        <span class="step-img-wrap">
+          <img src="https://crsurakhmbalgxim.public.blob.vercel-storage.com/virtual%20clinician%20consult.png" alt="Virtual clinician consult on a phone — DirectCare AI patient" loading="lazy" />
+        </span>
+        <div class="step-body">
+          <div class="step-num">02</div>
+          <h3>US Clinician Reviews</h3>
+          <p style="margin-top:10px;">A licensed DirectCare AI clinician reviews your case within 24 hours and prescribes the protocol that fits your pattern. Message them anytime.</p>
+        </div>
       </div>
-      <div class="step-card">
-        <div class="step-num">03</div>
-        <h3>Discreet Monthly Delivery</h3>
-        <p style="margin-top:10px;">Your custom protocol ships from a US compounding pharmacy in plain, unmarked packaging. Refills auto-send so you never miss a dose.</p>
+      <div class="step-card with-image">
+        <span class="step-img-wrap">
+          <img src="https://crsurakhmbalgxim.public.blob.vercel-storage.com/unmarked%20package%20on%20doorstep.png" alt="Plain unmarked DirectCare AI package on a doorstep" loading="lazy" />
+        </span>
+        <div class="step-body">
+          <div class="step-num">03</div>
+          <h3>Discreet Monthly Delivery</h3>
+          <p style="margin-top:10px;">Your custom protocol ships from a US compounding pharmacy in plain, unmarked packaging. Refills auto-send so you never miss a dose.</p>
+        </div>
       </div>
     </div>
     <div style="text-align:center; margin-top:48px;">
@@ -1674,6 +1809,16 @@
 <!-- ============ TESTIMONIALS ============ -->
 <section class="section" id="reviews">
   <div class="container">
+    <div class="lifestyle-band testimonial-band">
+      <div class="lifestyle-frame">
+        <img src="https://crsurakhmbalgxim.public.blob.vercel-storage.com/multi-generational%20women.png" alt="Three DirectCare AI patients of different ages and ethnicities together" loading="lazy" />
+        <div class="lifestyle-caption">
+          <span class="eyebrow"><span class="dot"></span> Verified DirectCare AI Patients</span>
+          <h3>97% see regrowth by month 6.</h3>
+          <p>Across postpartum, perimenopause, PCOS, and family-pattern thinning.</p>
+        </div>
+      </div>
+    </div>
     <div class="section-head">
       <span class="eyebrow"><span class="dot"></span> Verified Reviews</span>
       <h2 style="margin-top:22px;">Real women. Real regrowth.</h2>
@@ -1743,6 +1888,62 @@
           <blockquote>"The low-dose oral Minoxidil is the move for diffuse thinning. One pill, no greasy scalp, no stained pillow. My hairdresser noticed the regrowth at month 4 before I did."</blockquote>
           <div class="test-author"><div class="test-avatar">D</div><div>Danielle, 41 · Phoenix, AZ</div><div class="test-verified">✓ Verified</div></div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MEET YOUR CLINICIAN ============ -->
+<section class="section" id="clinician">
+  <div class="container">
+    <div class="meet-grid">
+      <div class="meet-photo">
+        <img src="https://crsurakhmbalgxim.public.blob.vercel-storage.com/clinician%20n%20computer.png" alt="A US-licensed DirectCare AI clinician at her desk" loading="lazy" />
+      </div>
+      <div>
+        <span class="eyebrow"><span class="dot"></span> Meet Your Clinician</span>
+        <h2 style="margin-top:18px;">A real US-licensed clinician — not a chatbot, not a refill mill.</h2>
+        <p style="margin-top: 16px; font-size: 1.04rem;">Every protocol is prescribed and adjusted by a US-licensed DirectCare AI clinician who reviews your photos, your trigger, and your labs. No drugstore counter conversation, no overseas pharmacist, no auto-refill autopilot.</p>
+        <ul class="meet-list">
+          <li>
+            <span class="meet-mark">✓</span>
+            <div>
+              <h4>Reviewed within 24 hours</h4>
+              <p>Your intake is read by a US-licensed clinician — typically same-day, never more than 24 hours.</p>
+            </div>
+          </li>
+          <li>
+            <span class="meet-mark">✓</span>
+            <div>
+              <h4>Message anytime</h4>
+              <p>Scalp irritation, side effect, dosing question — your clinician messages back through the secure portal, not a generic 800-number.</p>
+            </div>
+          </li>
+          <li>
+            <span class="meet-mark">✓</span>
+            <div>
+              <h4>90-day photo reviews</h4>
+              <p>Every 90 days your clinician reviews your progress photos and adjusts the protocol — escalate, taper, or swap formulations as your hair responds.</p>
+            </div>
+          </li>
+        </ul>
+        <div style="margin-top: 28px;">
+          <a href="#quiz" class="btn btn-primary btn-primary-xl magnetic">Start My Evaluation →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LIFESTYLE BAND — WOMAN TYING HAIR UP ============ -->
+<section class="section lifestyle-band soft" style="padding-top: 0;">
+  <div class="container">
+    <div class="lifestyle-frame">
+      <img src="https://crsurakhmbalgxim.public.blob.vercel-storage.com/woman%20tying%20hair%20up%20confidently.png" alt="A woman in her 40s confidently tying her hair up — DirectCare AI patient" loading="lazy" />
+      <div class="lifestyle-caption">
+        <span class="eyebrow"><span class="dot"></span> 12 months in</span>
+        <h3>Hair you can pull back without thinking about the part.</h3>
+        <p>The DirectCare AI protocol is built for the result you actually want — confidence on a Tuesday morning, not a marketing photo.</p>
       </div>
     </div>
   </div>
