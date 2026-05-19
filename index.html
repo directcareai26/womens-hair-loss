@@ -761,10 +761,22 @@
   .power-strip.power-split .power-cta { margin-top: 28px; }
   @media (max-width: 900px) { .power-strip.power-split .power-photo { max-width: 380px; margin: 0 auto; aspect-ratio: 1/1; } }
 
-  /* Testimonial hero band sits flush above the marquee — smaller treatment */
+  /* Testimonial hero band sits flush above the marquee
+     — aspect kept generous so the women's faces are fully visible */
   .testimonial-band { margin: 0 0 36px; }
-  .testimonial-band .lifestyle-frame { aspect-ratio: 24/7; }
-  @media (max-width: 760px) { .testimonial-band .lifestyle-frame { aspect-ratio: 4/3; } }
+  .testimonial-band .lifestyle-frame { aspect-ratio: 16/9; }
+  /* Crop the 1:1 source so faces sit in the upper third of the visible window,
+     well clear of the bottom gradient + caption */
+  .testimonial-band .lifestyle-frame img { object-position: center 28%; }
+  /* Softer overlay so faces don't get shadowed */
+  .testimonial-band .lifestyle-frame::after {
+    background: linear-gradient(180deg, rgba(26,15,36,0) 55%, rgba(26,15,36,0.72) 100%),
+                linear-gradient(90deg, rgba(26,15,36,0.30) 0%, transparent 50%);
+  }
+  @media (max-width: 760px) {
+    .testimonial-band .lifestyle-frame { aspect-ratio: 4/5; }
+    .testimonial-band .lifestyle-frame img { object-position: center 22%; }
+  }
 </style>
 </head>
 <body>
