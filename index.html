@@ -761,6 +761,56 @@
   .power-strip.power-split .power-cta { margin-top: 28px; }
   @media (max-width: 900px) { .power-strip.power-split .power-photo { max-width: 380px; margin: 0 auto; aspect-ratio: 1/1; } }
 
+  /* ============== PRODUCT CARD POLISH ============== */
+  /* Wide 5th card — vertical on mobile, horizontal on desktop with centered content */
+  .prod-wide-wrap { margin-top: 22px; }
+  .prod-card--wide { display: grid; grid-template-columns: 88px 1fr; align-items: center; gap: 28px; padding: 28px 32px; }
+  .prod-card--wide .prod-orb { margin: 0; flex-shrink: 0; }
+  .prod-card--wide .prod-wide-body .tag { margin-bottom: 6px; display: inline-block; }
+  .prod-card--wide .prod-wide-body h3 { margin: 4px 0 8px; }
+  .prod-card--wide .prod-wide-body .doses { margin: 0; }
+  .prod-card--wide .prod-wide-body p { margin-top: 10px; font-size: 0.96rem; }
+  @media (max-width: 560px) {
+    .prod-card--wide { grid-template-columns: 1fr; text-align: center; gap: 16px; padding: 28px 24px; }
+    .prod-card--wide .prod-orb { margin: 0 auto; }
+    .prod-card--wide .prod-wide-body .doses { justify-content: center; }
+  }
+
+  /* 2-col row used for cards 6+7 — collapses to 1 col on phones */
+  .prod-grid-2 { grid-template-columns: 1fr 1fr; margin-top: 22px; }
+  @media (max-width: 720px) { .prod-grid-2 { grid-template-columns: 1fr; } }
+
+  /* Shared CTA row beneath all 7 cards */
+  .prod-cta-row { text-align: center; margin-top: clamp(40px, 5vw, 64px); display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .prod-cta-row .btn { min-width: 240px; }
+  .prod-cta-row > .btn:first-of-type ~ .btn { margin-top: -4px; }
+  .prod-cta-row .prod-cta-fine { font-size: 0.86rem; color: var(--muted); margin-top: 6px; }
+  @media (min-width: 640px) {
+    .prod-cta-row { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 14px; }
+    .prod-cta-row .prod-cta-fine { width: 100%; margin-top: 6px; }
+  }
+
+  /* Subtle continuous pulse on each card's orb so the grid feels alive */
+  @keyframes prod-orb-breathe {
+    0%, 100% { transform: translateY(0) scale(1); filter: drop-shadow(0 8px 18px rgba(118,43,164,0.18)); }
+    50% { transform: translateY(-3px) scale(1.04); filter: drop-shadow(0 14px 22px rgba(175,75,237,0.30)); }
+  }
+  .prod-card .prod-orb { animation: prod-orb-breathe 5.5s ease-in-out infinite; will-change: transform; }
+  .prod-card:nth-child(1) .prod-orb { animation-delay: 0s; }
+  .prod-card:nth-child(2) .prod-orb { animation-delay: 0.6s; }
+  .prod-card:nth-child(3) .prod-orb { animation-delay: 1.2s; }
+  .prod-card:nth-child(4) .prod-orb { animation-delay: 1.8s; }
+  /* Brand-tinted glow on hover (desktop) */
+  @media (hover: hover) and (pointer: fine) {
+    .prod-card { transition: transform .25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow .25s ease, border-color .25s ease; }
+    .prod-card:hover { transform: translateY(-8px); border-color: rgba(175,75,237,0.55); box-shadow: 0 30px 60px -20px rgba(175,75,237,0.40); }
+    .prod-card:hover .prod-orb { animation-play-state: paused; transform: translateY(-6px) scale(1.10); filter: drop-shadow(0 18px 28px rgba(175,75,237,0.45)); }
+    .prod-card:hover .num { color: rgba(118,43,164,0.18); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .prod-card .prod-orb { animation: none !important; }
+  }
+
   /* Testimonial hero band sits flush above the marquee
      — aspect kept generous so the women's faces are fully visible */
   .testimonial-band { margin: 0 0 36px; }
@@ -1133,7 +1183,6 @@
           <span class="dose-pill">Tretinoin 0.005%</span>
         </div>
         <p>Our flagship women's topical. Hormone-free. Wakes dormant follicles, calms scalp, deepens absorption — safe across every life stage.</p>
-        <a class="prod-cta" href="https://business.tellescope.com/e/public/form?f=69c1e76a88e5800ffbb0c73b&businessId=67fe9d4248c4ab911e8bdcd6&nextFormId=&publicIdentifier=&customTypeId=&orgIds=&skipMatch=false&autoStart=false&sessionId=&">See if it's right for you →</a>
       </div>
 
       <div class="prod-card">
@@ -1148,7 +1197,6 @@
           <span class="dose-pill">Tretinoin 0.025%</span>
         </div>
         <p>For women plateaued on plain Minoxidil. Topical Dutasteride blocks DHT at the follicle — no systemic exposure.</p>
-        <a class="prod-cta" href="https://business.tellescope.com/e/public/form?f=69c1e76a88e5800ffbb0c73b&businessId=67fe9d4248c4ab911e8bdcd6&nextFormId=&publicIdentifier=&customTypeId=&orgIds=&skipMatch=false&autoStart=false&sessionId=&">See if it's right for you →</a>
       </div>
 
       <div class="prod-card">
@@ -1162,7 +1210,6 @@
           <span class="dose-pill">or 100mg</span>
         </div>
         <p>The most-studied oral option for hormonal thinning in women. Blocks androgen receptors at the follicle. Dose-matched to your labs.</p>
-        <a class="prod-cta" href="https://business.tellescope.com/e/public/form?f=69c1e76a88e5800ffbb0c73b&businessId=67fe9d4248c4ab911e8bdcd6&nextFormId=&publicIdentifier=&customTypeId=&orgIds=&skipMatch=false&autoStart=false&sessionId=&">See if it's right for you →</a>
       </div>
 
       <div class="prod-card">
@@ -1175,31 +1222,29 @@
           <span class="dose-pill">Minoxidil 2.5mg</span>
         </div>
         <p>One pill, full-scalp coverage. The clinician favorite for diffuse thinning or anyone tired of topical drops.</p>
-        <a class="prod-cta" href="https://business.tellescope.com/e/public/form?f=69c1e76a88e5800ffbb0c73b&businessId=67fe9d4248c4ab911e8bdcd6&nextFormId=&publicIdentifier=&customTypeId=&orgIds=&skipMatch=false&autoStart=false&sessionId=&">See if it's right for you →</a>
       </div>
 
     </div>
 
     <!-- 5th product full-width — Women's Oral Quad -->
-    <div style="margin-top: 22px;">
-      <div class="prod-card" style="display:grid; grid-template-columns: 96px 1fr auto; align-items:center; gap: 28px;">
-        <div class="prod-orb c1" style="margin: 0;"></div>
-        <div>
-          <span class="tag" style="margin-bottom:6px; display:inline-block;">Oral Only · Women</span>
-          <h3 style="margin:4px 0 8px;">Minoxidil + Biotin + Nutrients</h3>
-          <div class="doses" style="margin: 0;">
+    <div class="prod-wide-wrap">
+      <div class="prod-card prod-card--wide">
+        <div class="prod-orb c1"></div>
+        <div class="prod-wide-body">
+          <span class="tag">Oral Only · Women</span>
+          <h3>Minoxidil + Biotin + Nutrients</h3>
+          <div class="doses">
             <span class="dose-pill">Minoxidil 1mg oral</span>
             <span class="dose-pill">Biotin 25mg</span>
             <span class="dose-pill">Nutrients 100mg</span>
           </div>
-          <p style="margin-top: 10px;">One capsule, three actives. Oral Minoxidil + Biotin + follicle nutrients — the simplest possible women's routine.</p>
+          <p>One capsule, three actives. Oral Minoxidil + Biotin + follicle nutrients — the simplest possible women's routine.</p>
         </div>
-        <a class="btn btn-primary" href="https://business.tellescope.com/e/public/form?f=69c1e76a88e5800ffbb0c73b&businessId=67fe9d4248c4ab911e8bdcd6&nextFormId=&publicIdentifier=&customTypeId=&orgIds=&skipMatch=false&autoStart=false&sessionId=&" style="white-space:nowrap;">Qualify →</a>
       </div>
     </div>
 
-    <!-- 6th + 7th product row: Biotin + Ketoconazole -->
-    <div style="margin-top: 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px;" class="prod-grid">
+    <!-- 6th + 7th product row: Biotin + Ketoconazole — uses .prod-grid-2 (responsive 2→1 col) -->
+    <div class="prod-grid prod-grid-2">
 
       <div class="prod-card">
         <span class="num">06</span>
@@ -1211,7 +1256,6 @@
           <span class="dose-pill">Biotin 10,000 mcg</span>
         </div>
         <p>High-dose B7 to support keratin and follicle health. Pairs with every protocol. <strong style="color:var(--ink)">Free with every 24-week plan.</strong></p>
-        <a class="prod-cta" href="https://business.tellescope.com/e/public/form?f=69c1e76a88e5800ffbb0c73b&businessId=67fe9d4248c4ab911e8bdcd6&nextFormId=&publicIdentifier=&customTypeId=&orgIds=&skipMatch=false&autoStart=false&sessionId=&">Add to my protocol →</a>
       </div>
 
       <div class="prod-card">
@@ -1224,9 +1268,15 @@
           <span class="dose-pill">Ketoconazole 2%</span>
         </div>
         <p>Clinical-strength 2%. Treats dandruff and seborrhea while lowering scalp-level DHT. Use 2–3× a week.</p>
-        <a class="prod-cta" href="https://business.tellescope.com/e/public/form?f=69c1e76a88e5800ffbb0c73b&businessId=67fe9d4248c4ab911e8bdcd6&nextFormId=&publicIdentifier=&customTypeId=&orgIds=&skipMatch=false&autoStart=false&sessionId=&">Add to my protocol →</a>
       </div>
 
+    </div>
+
+    <!-- Shared CTA for all 7 protocols -->
+    <div class="prod-cta-row">
+      <a href="#quiz" class="btn btn-primary btn-primary-xl magnetic pulse-glow">Find My Protocol →</a>
+      <a href="#pricing" class="btn btn-ghost btn-primary-xl">See Pricing</a>
+      <p class="prod-cta-fine">60-second match · No charge if you don't qualify</p>
     </div>
 
     <!-- Interactive ingredient explorer -->
@@ -1277,235 +1327,13 @@
   </div>
 </section>
 
-<!-- ============ TRIAD (Science) ============ -->
+<!-- ============ THE RESULT (scalp close-ups, distilled from the old Science triad) ============ -->
 <section class="section" id="science">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow"><span class="dot"></span> The Science</span>
-      <h2 style="margin-top:22px;">Three mechanisms.<br/>One follicle.</h2>
-    </div>
-    <div class="triad">
-
-      <div class="triad-row">
-        <div>
-          <span class="eyebrow"><span class="dot"></span> Mechanism 01</span>
-          <h2 style="margin-top:18px; font-size:clamp(1.6rem, 3vw, 2.4rem);">Calm the hormones shrinking your follicles.</h2>
-          <p>Even with normal blood testosterone, <strong style="color:var(--ink)">androgens at the follicle</strong> are what miniaturize hair and widen the part. We block the receptor.</p>
-          <div>
-            <span class="ing-pill">Spironolactone</span>
-            <span class="ing-pill">Dutasteride topical</span>
-          </div>
-        </div>
-        <div class="triad-art">
-          <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <linearGradient id="bg1" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#fbf5fe"/>
-                <stop offset="100%" stop-color="#E9D9F2"/>
-              </linearGradient>
-              <linearGradient id="skin1" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#ffffff"/>
-                <stop offset="100%" stop-color="#f4eefb"/>
-              </linearGradient>
-              <linearGradient id="hairBrand" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#af4bed"/>
-                <stop offset="100%" stop-color="#762ba4"/>
-              </linearGradient>
-              <radialGradient id="bulbHealthy" cx="50%" cy="50%" r="60%">
-                <stop offset="0%" stop-color="#d185ff"/>
-                <stop offset="100%" stop-color="#762ba4"/>
-              </radialGradient>
-              <radialGradient id="bulbWeak" cx="50%" cy="50%" r="60%">
-                <stop offset="0%" stop-color="#E9D9F2"/>
-                <stop offset="100%" stop-color="#BE7ED8"/>
-              </radialGradient>
-              <radialGradient id="dhtGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#ff6a6a" stop-opacity="0.40"/>
-                <stop offset="100%" stop-color="#ff6a6a" stop-opacity="0"/>
-              </radialGradient>
-              <marker id="arrowSm2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 0 L 10 5 L 0 10 z" fill="#9043bf"/>
-              </marker>
-            </defs>
-
-            <!-- Background -->
-            <rect width="400" height="400" fill="url(#bg1)"/>
-
-            <!-- Title -->
-            <text x="200" y="30" text-anchor="middle" fill="#44215A" font-family="Manrope, sans-serif" font-weight="800" font-size="15" letter-spacing="0.5">SCALP CROSS-SECTION</text>
-
-            <!-- Scalp surface line -->
-            <rect x="0" y="48" width="400" height="68" fill="#fbf5fe" opacity="0.4"/>
-            <line x1="14" y1="116" x2="386" y2="116" stroke="#af4bed" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.65"/>
-            <text x="20" y="108" fill="#9043bf" font-family="Manrope, sans-serif" font-weight="800" font-size="8.5" letter-spacing="0.5">SCALP SURFACE</text>
-            <rect x="0" y="116" width="400" height="220" fill="url(#skin1)"/>
-
-            <!-- Lane separators (faint vertical dividers between follicles) -->
-            <g stroke="#af4bed" stroke-width="0.6" stroke-dasharray="2 4" opacity="0.16">
-              <line x1="133" y1="52" x2="133" y2="336"/>
-              <line x1="267" y1="52" x2="267" y2="336"/>
-            </g>
-
-            <!-- Center arrows between stages -->
-            <g stroke="#9043bf" stroke-width="1.5" fill="none" stroke-linecap="round">
-              <path d="M122,80 L144,80" marker-end="url(#arrowSm2)"/>
-              <path d="M256,80 L278,80" marker-end="url(#arrowSm2)"/>
-            </g>
-
-            <!-- ===== Follicle 1 — HEALTHY (left lane center x=66) ===== -->
-            <g transform="translate(66,0)">
-              <path d="M0,60 C-1,88 1,106 0,116" stroke="url(#hairBrand)" stroke-width="6" stroke-linecap="round" fill="none"/>
-              <path d="M-3,116 Q-3,208 -10,278 Q-10,308 0,316 Q10,308 10,278 Q3,208 3,116 Z" fill="#fff" stroke="#af4bed" stroke-width="1.5"/>
-              <ellipse cx="0" cy="310" rx="15" ry="19" fill="url(#bulbHealthy)"/>
-              <circle cx="-4" cy="304" r="3" fill="#fff" opacity="0.6"/>
-              <text x="0" y="360" text-anchor="middle" fill="#9043bf" font-family="Manrope, sans-serif" font-weight="800" font-size="12" letter-spacing="0.3">HEALTHY</text>
-              <text x="0" y="380" text-anchor="middle" fill="#5b4d65" font-family="Inter, sans-serif" font-size="10">Normal</text>
-            </g>
-
-            <!-- ===== Follicle 2 — MINIATURIZED (center lane x=200) ===== -->
-            <g transform="translate(200,0)">
-              <!-- DHT cloud — stays well within the lane (radius 48, lane half-width is ~62) -->
-              <circle cx="0" cy="252" r="48" fill="url(#dhtGlow)"/>
-              <!-- Thin shaft -->
-              <path d="M0,96 C-1,106 1,112 0,116" stroke="url(#hairBrand)" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.75"/>
-              <!-- Shrunken channel -->
-              <path d="M-2,116 Q-2,178 -6,228 Q-6,252 0,258 Q6,252 6,228 Q2,178 2,116 Z" fill="#fff" stroke="#af4bed" stroke-width="1.3" opacity="0.9"/>
-              <ellipse cx="0" cy="254" rx="9" ry="12" fill="url(#bulbWeak)"/>
-              <!-- DHT molecules — all within ±50px of center -->
-              <g font-family="Manrope, sans-serif" font-weight="900" font-size="8.5" fill="#fff">
-                <circle cx="-26" cy="228" r="10" fill="#d04545" opacity="0.9"/>
-                <text x="-26" y="232" text-anchor="middle">DHT</text>
-                <circle cx="28" cy="272" r="9" fill="#d04545" opacity="0.85"/>
-                <text x="28" y="276" text-anchor="middle">DHT</text>
-                <circle cx="-20" cy="280" r="6" fill="#d04545" opacity="0.7"/>
-                <circle cx="24" cy="226" r="5" fill="#d04545" opacity="0.65"/>
-              </g>
-              <!-- Attack arrows -->
-              <path d="M-17,232 L-9,246" stroke="#d04545" stroke-width="1.4" stroke-linecap="round"/>
-              <path d="M19,268 L11,254" stroke="#d04545" stroke-width="1.4" stroke-linecap="round"/>
-              <text x="0" y="360" text-anchor="middle" fill="#d04545" font-family="Manrope, sans-serif" font-weight="800" font-size="12" letter-spacing="0.3">MINIATURIZED</text>
-              <text x="0" y="380" text-anchor="middle" fill="#5b4d65" font-family="Inter, sans-serif" font-size="10">DHT shrinks shaft</text>
-            </g>
-
-            <!-- ===== Follicle 3 — BLOCKED & REGROWN (right lane x=334) ===== -->
-            <g transform="translate(334,0)">
-              <path d="M0,52 C-1,80 1,104 0,116" stroke="url(#hairBrand)" stroke-width="7" stroke-linecap="round" fill="none"/>
-              <path d="M-3,116 Q-3,208 -10,278 Q-10,308 0,316 Q10,308 10,278 Q3,208 3,116 Z" fill="#fff" stroke="#af4bed" stroke-width="1.5"/>
-              <ellipse class="bulb-pulse" cx="0" cy="310" rx="15" ry="19" fill="url(#bulbHealthy)"/>
-              <circle cx="-4" cy="304" r="3" fill="#fff" opacity="0.6"/>
-              <!-- Blocker shield + crossed-out DHT — ABOVE the bulb, contained in this lane -->
-              <g transform="translate(0,180)">
-                <!-- Crossed-out DHT (left side, inside the lane) -->
-                <g font-family="Manrope, sans-serif" font-weight="900" font-size="8" fill="#fff">
-                  <circle cx="-22" cy="0" r="9" fill="#d04545" opacity="0.45"/>
-                  <text x="-22" y="3" text-anchor="middle">DHT</text>
-                  <line x1="-29" y1="-7" x2="-15" y2="7" stroke="#7a1f1f" stroke-width="1.8" stroke-linecap="round"/>
-                  <line x1="-15" y1="-7" x2="-29" y2="7" stroke="#7a1f1f" stroke-width="1.8" stroke-linecap="round"/>
-                </g>
-                <!-- Green Spironolactone/Dutasteride shield -->
-                <g transform="translate(10,-12)">
-                  <path d="M0,0 L16,-6 L16,6 Q16,18 8,24 Q0,18 0,6 Z" fill="#fff" stroke="#14983A" stroke-width="2"/>
-                  <path d="M4,8 L7,12 L13,4" stroke="#14983A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                </g>
-              </g>
-              <text x="0" y="360" text-anchor="middle" fill="#14983A" font-family="Manrope, sans-serif" font-weight="800" font-size="12" letter-spacing="0.3">REGROWN</text>
-              <text x="0" y="380" text-anchor="middle" fill="#5b4d65" font-family="Inter, sans-serif" font-size="10">DHT blocked</text>
-            </g>
-          </svg>
-        </div>
-      </div>
-
-      <div class="triad-row flip">
-        <div>
-          <span class="eyebrow"><span class="dot"></span> Mechanism 02</span>
-          <h2 style="margin-top:18px; font-size:clamp(1.6rem, 3vw, 2.4rem);">Wake the sleeping follicles.</h2>
-          <p>The follicles you've lost aren't dead — they're <strong style="color:var(--ink)">dormant.</strong> Minoxidil wakes them back up. The most-studied women's regrowth active by a wide margin.</p>
-          <div>
-            <span class="ing-pill">Minoxidil topical</span>
-            <span class="ing-pill">Low-dose oral Minoxidil</span>
-          </div>
-        </div>
-        <div class="triad-art">
-          <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <radialGradient id="g2" cx="50%" cy="40%" r="60%">
-                <stop offset="0%" stop-color="#fbf5fe"/>
-                <stop offset="100%" stop-color="#E9D9F2"/>
-              </radialGradient>
-            </defs>
-            <rect width="400" height="400" fill="url(#g2)"/>
-            <!-- scalp cross-section -->
-            <path d="M30,150 Q200,80 370,150 L370,260 Q200,200 30,260 Z" fill="#fff" stroke="#af4bed" stroke-width="2"/>
-            <!-- blood vessels widening -->
-            <path d="M60,210 Q200,170 340,210" stroke="#d04545" stroke-width="3" fill="none" opacity="0.6"/>
-            <path d="M60,230 Q200,190 340,230" stroke="#d04545" stroke-width="6" fill="none"/>
-            <path d="M60,250 Q200,210 340,250" stroke="#d04545" stroke-width="9" fill="none" opacity="0.8"/>
-            <!-- follicles emerging -->
-            <g>
-              <line x1="100" y1="160" x2="100" y2="80" stroke="#762ba4" stroke-width="4" stroke-linecap="round"/>
-              <line x1="160" y1="160" x2="160" y2="60" stroke="#762ba4" stroke-width="6" stroke-linecap="round"/>
-              <line x1="220" y1="160" x2="220" y2="70" stroke="#762ba4" stroke-width="5" stroke-linecap="round"/>
-              <line x1="280" y1="160" x2="280" y2="90" stroke="#762ba4" stroke-width="4" stroke-linecap="round"/>
-              <line x1="320" y1="160" x2="320" y2="100" stroke="#762ba4" stroke-width="3" stroke-linecap="round"/>
-            </g>
-            <text x="200" y="320" text-anchor="middle" fill="#44215A" font-family="Manrope" font-weight="800" font-size="18">Blood flow → Active growth phase</text>
-          </svg>
-        </div>
-      </div>
-
-      <div class="triad-row">
-        <div>
-          <span class="eyebrow"><span class="dot"></span> Mechanism 03</span>
-          <h2 style="margin-top:18px; font-size:clamp(1.6rem, 3vw, 2.4rem);">Get the medication to the follicle.</h2>
-          <p>Inflamed scalp blocks absorption. <strong style="color:var(--ink)">Tretinoin opens the path; Fluocinolone calms it.</strong> Together they make every other ingredient work harder.</p>
-          <div>
-            <span class="ing-pill">Tretinoin</span>
-            <span class="ing-pill">Fluocinolone</span>
-          </div>
-        </div>
-        <div class="triad-art">
-          <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <radialGradient id="g3" cx="50%" cy="40%" r="60%">
-                <stop offset="0%" stop-color="#fbf5fe"/>
-                <stop offset="100%" stop-color="#E9D9F2"/>
-              </radialGradient>
-            </defs>
-            <rect width="400" height="400" fill="url(#g3)"/>
-            <!-- skin layers -->
-            <rect x="50" y="80" width="300" height="40" fill="#fff" stroke="#af4bed" stroke-width="2"/>
-            <text x="200" y="105" text-anchor="middle" fill="#44215A" font-family="Manrope" font-weight="800" font-size="12">EPIDERMIS</text>
-            <rect x="50" y="120" width="300" height="80" fill="#fbf5fe" stroke="#af4bed" stroke-width="2"/>
-            <text x="200" y="165" text-anchor="middle" fill="#44215A" font-family="Manrope" font-weight="800" font-size="12">DERMIS</text>
-            <rect x="50" y="200" width="300" height="100" fill="#E9D9F2" stroke="#af4bed" stroke-width="2"/>
-            <text x="200" y="252" text-anchor="middle" fill="#44215A" font-family="Manrope" font-weight="800" font-size="12">FOLLICLE BED</text>
-            <!-- absorption arrows -->
-            <g stroke="#af4bed" stroke-width="3" fill="none" stroke-linecap="round">
-              <path d="M100,60 L100,290" marker-end="url(#arrow)"/>
-              <path d="M200,60 L200,290" marker-end="url(#arrow)"/>
-              <path d="M300,60 L300,290" marker-end="url(#arrow)"/>
-            </g>
-            <defs>
-              <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 0 L 10 5 L 0 10 z" fill="#af4bed"/>
-              </marker>
-            </defs>
-            <!-- drops -->
-            <circle cx="100" cy="50" r="8" fill="#af4bed"/>
-            <circle cx="200" cy="50" r="8" fill="#af4bed"/>
-            <circle cx="300" cy="50" r="8" fill="#af4bed"/>
-            <text x="200" y="360" text-anchor="middle" fill="#44215A" font-family="Manrope" font-weight="800" font-size="16">Tretinoin opens the path. Fluocinolone calms it.</text>
-          </svg>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Real scalps, real density — paired close-ups -->
-    <div style="margin-top: clamp(40px, 6vw, 64px); text-align: center;">
       <span class="eyebrow"><span class="dot"></span> The result</span>
-      <h2 style="margin-top:18px; font-size:clamp(1.6rem, 3vw, 2.4rem);">A part that's quieter under bathroom light.</h2>
-      <p style="margin-top: 14px; max-width: 600px; margin-left: auto; margin-right: auto;"><strong style="color:var(--ink)">Density along the part</strong> — fine new hairs filling the gap, scalp showing through less.</p>
+      <h2 style="margin-top:18px;">A part that's quieter under bathroom light.</h2>
+      <p style="margin-top:14px; max-width: 600px; margin-left: auto; margin-right: auto;"><strong style="color:var(--ink)">Density along the part</strong> — fine new hairs filling the gap, scalp showing through less.</p>
     </div>
     <div class="scalp-split">
       <div class="scalp-card">
@@ -1522,11 +1350,6 @@
           <h4>Built for every hair type and texture.</h4>
         </div>
       </div>
-    </div>
-
-    <div style="text-align:center; margin-top:48px;">
-      <a href="#quiz" class="btn btn-primary btn-primary-xl magnetic">Find My Protocol →</a>
-      <p style="margin-top:14px; font-size:0.88rem; color:var(--muted);">60-second match · No charge if you don't qualify</p>
     </div>
   </div>
 </section>
