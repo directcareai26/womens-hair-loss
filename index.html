@@ -33,7 +33,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@500;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 <style>
   :root {
     /* DirectCare AI brand */
@@ -64,10 +64,10 @@
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: 'Inter', system-ui, -apple-system, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: 'Geist', 'Inter', system-ui, -apple-system, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
   a { color: inherit; text-decoration: none; }
   img { max-width: 100%; display: block; }
-  h1, h2, h3, h4 { font-family: 'Manrope', 'Inter', sans-serif; font-weight: 800; letter-spacing: -0.025em; margin: 0; line-height: 1.05; color: var(--ink); }
+  h1, h2, h3, h4 { font-family: 'Geist', 'Manrope', 'Inter', sans-serif; font-weight: 800; letter-spacing: -0.025em; margin: 0; line-height: 1.05; color: var(--ink); }
   h1 { font-size: clamp(2.6rem, 7vw, 5.5rem); }
   h2 { font-size: clamp(2rem, 4.2vw, 3.4rem); }
   h3 { font-size: clamp(1.2rem, 2vw, 1.55rem); }
@@ -242,7 +242,7 @@
   .seal { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); }
   .seal-icon { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; background: var(--soft); border: 1px solid var(--lavender-100); color: var(--brand); }
   .seal-text { display: flex; flex-direction: column; line-height: 1.2; }
-  .seal-text strong { font-family: 'Manrope', sans-serif; font-size: 0.86rem; font-weight: 800; color: var(--ink); letter-spacing: -0.01em; }
+  .seal-text strong { font-family: 'Geist', 'Manrope', sans-serif; font-size: 0.86rem; font-weight: 800; color: var(--ink); letter-spacing: -0.01em; }
   .seal-text span { font-size: 0.74rem; color: var(--muted); font-weight: 500; }
   @media (max-width: 760px) {
     .trust-seal-inner { gap: 18px 24px; justify-content: space-around; }
@@ -257,12 +257,12 @@
   @media (max-width: 900px) { .vp-grid { grid-template-columns: 1fr; } }
   .vp-list { display: grid; gap: 22px; margin-top: 28px; }
   .vp-item { display: flex; gap: 16px; }
-  .vp-bullet { flex: 0 0 38px; height: 38px; border-radius: 12px; background: rgba(175,75,237,0.10); border: 1px solid rgba(175,75,237,0.25); display: grid; place-items: center; color: var(--brand-deep); font-weight: 800; font-family: 'Manrope', sans-serif; }
-  .vp-item h4 { font-family: 'Manrope', sans-serif; font-size: 1.08rem; margin-bottom: 4px; }
+  .vp-bullet { flex: 0 0 38px; height: 38px; border-radius: 12px; background: rgba(175,75,237,0.10); border: 1px solid rgba(175,75,237,0.25); display: grid; place-items: center; color: var(--brand-deep); font-weight: 800; font-family: 'Geist', 'Manrope', sans-serif; }
+  .vp-item h4 { font-family: 'Geist', 'Manrope', sans-serif; font-size: 1.08rem; margin-bottom: 4px; }
   .vp-image-card { aspect-ratio: 1/1.05; background: linear-gradient(160deg, var(--soft) 0%, white 100%); border: 1px solid var(--lavender-100); border-radius: var(--radius-lg); padding: 40px; position: relative; overflow: hidden; box-shadow: var(--shadow-soft); }
   .vp-image-card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 30%, rgba(175,75,237,0.10), transparent 60%); }
   .timer-pill { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; flex-direction: column; height: 100%; gap: 22px; text-align: center; }
-  .timer-num { font-family: 'Manrope', sans-serif; font-size: clamp(5rem, 14vw, 9.5rem); font-weight: 900; line-height: 1; background: linear-gradient(135deg, var(--brand), var(--brand-darker)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .timer-num { font-family: 'Geist', 'Manrope', sans-serif; font-size: clamp(5rem, 14vw, 9.5rem); font-weight: 900; line-height: 1; background: linear-gradient(135deg, var(--brand), var(--brand-darker)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
   .timer-cap { color: var(--brand-deep); text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem; font-weight: 700; }
   .timer-desc { color: var(--ink); font-weight: 600; max-width: 320px; }
 
@@ -274,7 +274,7 @@
   @media (max-width: 540px) { .prod-grid { grid-template-columns: 1fr; } }
   .prod-card { background: white; border: 1px solid var(--lavender-100); border-radius: var(--radius); padding: 32px 26px; position: relative; overflow: hidden; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; box-shadow: 0 8px 24px -10px rgba(118,43,164,0.08); display: flex; flex-direction: column; }
   .prod-card:hover { transform: translateY(-6px); border-color: rgba(175,75,237,0.4); box-shadow: var(--shadow-soft); }
-  .prod-card .num { position: absolute; top: 16px; right: 20px; font-family: 'Manrope', sans-serif; font-size: 2.4rem; font-weight: 900; color: rgba(118,43,164,0.07); }
+  .prod-card .num { position: absolute; top: 16px; right: 20px; font-family: 'Geist', 'Manrope', sans-serif; font-size: 2.4rem; font-weight: 900; color: rgba(118,43,164,0.07); }
   .prod-orb { width: 64px; height: 64px; border-radius: 50%; margin-bottom: 20px; box-shadow: 0 10px 24px rgba(0,0,0,0.12), inset 0 3px 8px rgba(255,255,255,0.4), inset 0 -8px 14px rgba(0,0,0,0.18); }
   .prod-orb.c1 { background: radial-gradient(circle at 30% 25%, #e6a3ff, var(--brand) 70%, var(--brand-darker)); }
   .prod-orb.c2 { background: radial-gradient(circle at 30% 25%, #b8f1eb, #34d2c8 70%, #0e6e69); }
@@ -291,7 +291,7 @@
 
   .formula-pill { margin-top: 28px; display: inline-block; padding: 18px 28px; background: white; border: 1px solid var(--lavender-100); border-radius: var(--radius); box-shadow: var(--shadow-soft); }
   .formula-label { display: block; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brand-deep); margin-bottom: 10px; }
-  .formula-line { font-family: 'Manrope', sans-serif; font-size: clamp(0.95rem, 1.6vw, 1.15rem); color: var(--ink); display: flex; flex-wrap: wrap; gap: 6px 12px; justify-content: center; align-items: baseline; }
+  .formula-line { font-family: 'Geist', 'Manrope', sans-serif; font-size: clamp(0.95rem, 1.6vw, 1.15rem); color: var(--ink); display: flex; flex-wrap: wrap; gap: 6px 12px; justify-content: center; align-items: baseline; }
   .formula-line strong { font-weight: 800; }
   .formula-line strong small { font-size: 0.75em; font-weight: 700; color: var(--brand); margin-left: 1px; }
   .formula-sep { color: var(--brand); font-weight: 900; opacity: 0.7; }
@@ -312,8 +312,8 @@
   .ing-tab-dot.c3 { background: radial-gradient(circle at 30% 25%, #ffd28a, #d99b1f 70%, #a06700); }
   .ing-tab-dot.c4 { background: radial-gradient(circle at 30% 25%, #b6e0ff, #4a8cff 70%, #1a4dc7); }
   .ing-tab-dot.c5 { background: radial-gradient(circle at 30% 25%, #ffd5d5, #ff6a6a 70%, #a32d2d); }
-  .ing-tab-name { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 0.92rem; color: var(--ink); line-height: 1.15; }
-  .ing-tab-mg { font-family: 'Manrope', sans-serif; font-size: 0.7rem; color: var(--brand-deep); font-weight: 700; background: rgba(175,75,237,0.10); padding: 2px 8px; border-radius: 999px; }
+  .ing-tab-name { font-family: 'Geist', 'Manrope', sans-serif; font-weight: 800; font-size: 0.92rem; color: var(--ink); line-height: 1.15; }
+  .ing-tab-mg { font-family: 'Geist', 'Manrope', sans-serif; font-size: 0.7rem; color: var(--brand-deep); font-weight: 700; background: rgba(175,75,237,0.10); padding: 2px 8px; border-radius: 999px; }
   .ing-tab.active .ing-tab-mg { background: var(--brand); color: white; }
 
   .ing-detail { display: grid; grid-template-columns: 280px 1fr; gap: clamp(28px, 5vw, 56px); align-items: center; min-height: 280px; }
@@ -326,12 +326,12 @@
   .ing-detail-visual.c3 { background: radial-gradient(circle at 30% 25%, #ffd28a, #d99b1f 60%, #a06700); box-shadow: 0 30px 70px -15px rgba(217,155,31,0.40); }
   .ing-detail-visual.c4 { background: radial-gradient(circle at 30% 25%, #b6e0ff, #4a8cff 60%, #1a4dc7); box-shadow: 0 30px 70px -15px rgba(74,140,255,0.40); }
   .ing-detail-visual.c5 { background: radial-gradient(circle at 30% 25%, #ffd5d5, #ff6a6a 60%, #a32d2d); box-shadow: 0 30px 70px -15px rgba(255,106,106,0.40); }
-  .ing-detail-mg { position: absolute; inset: 0; display: grid; place-items: center; color: white; font-family: 'Manrope', sans-serif; font-weight: 900; font-size: clamp(2rem, 4.4vw, 2.6rem); line-height: 1; text-shadow: 0 6px 18px rgba(0,0,0,0.30); text-align: center; padding: 0 12px; }
+  .ing-detail-mg { position: absolute; inset: 0; display: grid; place-items: center; color: white; font-family: 'Geist', 'Manrope', sans-serif; font-weight: 900; font-size: clamp(2rem, 4.4vw, 2.6rem); line-height: 1; text-shadow: 0 6px 18px rgba(0,0,0,0.30); text-align: center; padding: 0 12px; }
 
   .ing-detail-info { animation: ingFade .35s ease; }
   @keyframes ingFade { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
   .ing-detail-tag { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--brand-deep); font-weight: 800; }
-  .ing-detail-name { font-family: 'Manrope', sans-serif; font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; line-height: 1.05; margin-top: 6px; color: var(--ink); }
+  .ing-detail-name { font-family: 'Geist', 'Manrope', sans-serif; font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; line-height: 1.05; margin-top: 6px; color: var(--ink); }
   .ing-detail-desc { margin-top: 12px; font-size: 1.02rem; color: var(--muted); line-height: 1.6; }
   .ing-detail-meta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 20px; }
   .meta-pill { display: inline-flex; align-items: center; gap: 8px; background: var(--soft); border: 1px solid var(--lavender-100); border-radius: 999px; padding: 8px 14px; font-size: 0.84rem; font-weight: 600; color: var(--ink); }
@@ -368,7 +368,7 @@
   .qual-col.qual-yes { background: linear-gradient(180deg, var(--soft) 0%, #ffffff 60%); border-color: rgba(175,75,237,0.40); box-shadow: var(--shadow-soft); }
   .qual-col.qual-no  { background: linear-gradient(180deg, #fdf6f6 0%, #ffffff 60%); border-color: rgba(208,69,69,0.18); }
   .qual-head { display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; }
-  .qual-badge { display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; font-family: 'Manrope', sans-serif; font-size: 0.7rem; letter-spacing: 0.16em; font-weight: 800; padding: 5px 12px; border-radius: 999px; text-transform: uppercase; }
+  .qual-badge { display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; font-family: 'Geist', 'Manrope', sans-serif; font-size: 0.7rem; letter-spacing: 0.16em; font-weight: 800; padding: 5px 12px; border-radius: 999px; text-transform: uppercase; }
   .qual-badge-yes { background: rgba(20,152,58,0.12); color: var(--green); border: 1px solid rgba(20,152,58,0.30); }
   .qual-badge-no  { background: rgba(208,69,69,0.10); color: var(--bad); border: 1px solid rgba(208,69,69,0.30); }
   .qual-head h3 { font-size: 1.5rem; line-height: 1.15; color: var(--ink); }
@@ -413,7 +413,7 @@
   .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   @media (max-width: 760px) { .steps-grid { grid-template-columns: 1fr; } }
   .step-card { padding: 36px; background: white; border: 1px solid var(--lavender-100); border-radius: var(--radius); position: relative; box-shadow: 0 8px 24px -10px rgba(118,43,164,0.08); }
-  .step-num { font-family: 'Manrope', sans-serif; font-size: 3.4rem; font-weight: 900; line-height: 1; background: linear-gradient(135deg, var(--brand), var(--brand-darker)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
+  .step-num { font-family: 'Geist', 'Manrope', sans-serif; font-size: 3.4rem; font-weight: 900; line-height: 1; background: linear-gradient(135deg, var(--brand), var(--brand-darker)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
   .step-card h3 { margin-bottom: 10px; }
 
   /* ============== PRICING ============== */
@@ -423,11 +423,11 @@
   .plan-card:hover { transform: translateY(-4px); border-color: rgba(175,75,237,0.40); box-shadow: var(--shadow-soft); }
   .plan-card.plan-best { border-color: var(--brand); box-shadow: var(--shadow-lg); transform: translateY(-6px); background: linear-gradient(180deg, var(--soft) 0%, #ffffff 60%); }
   .plan-card.plan-best:hover { transform: translateY(-10px); }
-  .plan-ribbon { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--brand); color: white; font-family: 'Manrope', sans-serif; font-size: 0.7rem; letter-spacing: 0.16em; font-weight: 800; padding: 6px 16px; border-radius: 999px; box-shadow: 0 8px 22px -4px rgba(175,75,237,0.50); white-space: nowrap; }
+  .plan-ribbon { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--brand); color: white; font-family: 'Geist', 'Manrope', sans-serif; font-size: 0.7rem; letter-spacing: 0.16em; font-weight: 800; padding: 6px 16px; border-radius: 999px; box-shadow: 0 8px 22px -4px rgba(175,75,237,0.50); white-space: nowrap; }
   .plan-ribbon-value { background: linear-gradient(135deg, var(--brand-darker), var(--brand)); }
-  .plan-tag { font-family: 'Manrope', sans-serif; font-size: 0.78rem; letter-spacing: 0.18em; color: var(--brand-deep); font-weight: 800; text-transform: uppercase; }
+  .plan-tag { font-family: 'Geist', 'Manrope', sans-serif; font-size: 0.78rem; letter-spacing: 0.18em; color: var(--brand-deep); font-weight: 800; text-transform: uppercase; }
   .plan-price { margin-top: 14px; display: flex; align-items: baseline; gap: 8px; }
-  .plan-amt { font-family: 'Manrope', sans-serif; font-size: clamp(2.4rem, 5vw, 3.2rem); font-weight: 900; line-height: 1; color: var(--ink); }
+  .plan-amt { font-family: 'Geist', 'Manrope', sans-serif; font-size: clamp(2.4rem, 5vw, 3.2rem); font-weight: 900; line-height: 1; color: var(--ink); }
   .plan-card.plan-best .plan-amt { background: linear-gradient(135deg, var(--brand), var(--brand-darker)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
   .plan-unit { color: var(--muted); font-weight: 600; font-size: 1rem; }
   .plan-billed { margin-top: 8px; font-size: 0.92rem; color: var(--muted); }
@@ -444,7 +444,7 @@
   @media (max-width: 980px) { .price-wrap { grid-template-columns: 1fr; } }
   .price-card { background: white; border: 1px solid rgba(175,75,237,0.30); border-radius: var(--radius-lg); padding: 48px; position: relative; box-shadow: var(--shadow-lg); }
   .price-tag { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--brand-deep); font-weight: 800; }
-  .price-now { font-family: 'Manrope', sans-serif; font-size: clamp(3rem, 7vw, 4.6rem); font-weight: 900; line-height: 1; margin: 16px 0 6px; color: var(--ink); }
+  .price-now { font-family: 'Geist', 'Manrope', sans-serif; font-size: clamp(3rem, 7vw, 4.6rem); font-weight: 900; line-height: 1; margin: 16px 0 6px; color: var(--ink); }
   .price-now .small { font-size: 1.2rem; color: var(--muted); font-weight: 600; vertical-align: top; }
   .price-was { color: var(--muted); text-decoration: line-through; font-size: 1.05rem; margin-right: 12px; }
   .save { display: inline-block; padding: 4px 10px; background: rgba(20,152,58,0.12); color: var(--green); border-radius: 999px; font-size: 0.78rem; font-weight: 700; border: 1px solid rgba(20,152,58,0.25); }
@@ -469,7 +469,7 @@
   /* ============== FAQ ============== */
   .faq-wrap { max-width: 840px; margin: 0 auto; }
   .faq { background: white; border: 1px solid var(--lavender-100); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; }
-  .faq summary { padding: 24px 28px; cursor: pointer; font-weight: 700; font-family: 'Manrope', sans-serif; font-size: 1.05rem; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; color: var(--ink); }
+  .faq summary { padding: 24px 28px; cursor: pointer; font-weight: 700; font-family: 'Geist', 'Manrope', sans-serif; font-size: 1.05rem; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; color: var(--ink); }
   .faq summary::-webkit-details-marker { display: none; }
   .faq summary::after { content: "+"; font-size: 1.5rem; color: var(--brand); font-weight: 400; transition: transform .2s ease; }
   .faq[open] summary::after { content: "−"; }
@@ -495,7 +495,7 @@
   @media (max-width: 760px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
   .foot-brand img { height: 28px; }
   .foot-brand p { margin-top: 14px; max-width: 400px; font-size: 0.92rem; }
-  .foot-col h5 { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); margin-bottom: 18px; }
+  .foot-col h5 { font-family: 'Geist', 'Manrope', sans-serif; font-weight: 800; font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); margin-bottom: 18px; }
   .foot-col a { display: block; color: var(--muted); font-size: 0.92rem; margin-bottom: 10px; }
   .foot-col a:hover { color: var(--brand); }
   .legal { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--lavender-100); display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; color: var(--muted); font-size: 0.82rem; }
@@ -515,7 +515,7 @@
   .quiz-progress span.active { background: var(--brand-deep); }
   .quiz-step { display: none; }
   .quiz-step.active { display: block; }
-  .quiz-q { font-family: 'Manrope', sans-serif; font-size: clamp(1.25rem, 2.4vw, 1.55rem); font-weight: 800; margin-bottom: 22px; text-align: center; color: var(--ink); }
+  .quiz-q { font-family: 'Geist', 'Manrope', sans-serif; font-size: clamp(1.25rem, 2.4vw, 1.55rem); font-weight: 800; margin-bottom: 22px; text-align: center; color: var(--ink); }
   .quiz-options { display: grid; gap: 12px; }
   .quiz-option { padding: 18px 22px; border: 1.5px solid var(--lavender-100); background: white; border-radius: 14px; text-align: left; font-size: 1rem; font-weight: 600; color: var(--ink); cursor: pointer; transition: all .15s ease; font-family: inherit; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
   .quiz-option:hover { border-color: var(--brand); background: var(--soft); transform: translateY(-1px); }
@@ -536,7 +536,7 @@
   .sticky-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 45; background: rgba(26,15,36,0.94); backdrop-filter: blur(14px); border-top: 1px solid rgba(255,255,255,0.08); padding: 12px clamp(16px, 4vw, 32px); display: flex; align-items: center; justify-content: space-between; gap: 16px; transform: translateY(110%); transition: transform .25s ease; box-shadow: 0 -10px 30px -10px rgba(0,0,0,0.4); }
   .sticky-cta.visible { transform: translateY(0); }
   .sticky-cta-left { display: flex; flex-direction: column; line-height: 1.2; color: white; }
-  .sticky-cta-price { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 1.12rem; }
+  .sticky-cta-price { font-family: 'Geist', 'Manrope', sans-serif; font-weight: 800; font-size: 1.12rem; }
   .sticky-cta-price .accent { color: #e6b6ff; }
   .sticky-cta-sub { font-size: 0.78rem; color: rgba(255,255,255,0.65); }
   .sticky-cta .btn { padding: 14px 24px; font-size: 0.92rem; white-space: nowrap; box-shadow: 0 8px 22px -6px rgba(175,75,237,0.5); }
@@ -622,9 +622,9 @@
     .tl-dot { top: calc(var(--p) * 1%); left: 50%; }
   }
   .tl-card { background: white; border: 1px solid var(--lavender-100); border-radius: var(--radius); padding: 28px 22px; position: relative; box-shadow: 0 8px 24px -10px rgba(118,43,164,0.08); z-index: 1; }
-  .tl-card .tl-num { font-family: 'Manrope', sans-serif; font-weight: 900; font-size: 2rem; background: linear-gradient(135deg, var(--brand), var(--brand-darker)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .tl-card .tl-num { font-family: 'Geist', 'Manrope', sans-serif; font-weight: 900; font-size: 2rem; background: linear-gradient(135deg, var(--brand), var(--brand-darker)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
   .tl-card .tl-label { font-size: 0.72rem; letter-spacing: 0.14em; color: var(--brand-deep); font-weight: 800; text-transform: uppercase; margin-top: 4px; }
-  .tl-card h4 { font-family: 'Manrope', sans-serif; font-size: 1.1rem; margin: 10px 0 8px; color: var(--ink); }
+  .tl-card h4 { font-family: 'Geist', 'Manrope', sans-serif; font-size: 1.1rem; margin: 10px 0 8px; color: var(--ink); }
   .tl-card p { font-size: 0.92rem; line-height: 1.55; }
 
   /* ============== MOBILE OPTIMIZATIONS ============== */
@@ -705,7 +705,7 @@
   .lifestyle-band .lifestyle-frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,15,36,0) 35%, rgba(26,15,36,0.55) 100%), linear-gradient(90deg, rgba(26,15,36,0.45) 0%, transparent 55%); z-index: 1; pointer-events: none; }
   .lifestyle-band .lifestyle-caption { position: absolute; left: clamp(22px, 4vw, 56px); bottom: clamp(22px, 4vw, 48px); right: clamp(22px, 4vw, 56px); z-index: 2; color: white; max-width: 620px; }
   .lifestyle-band .lifestyle-caption .eyebrow { background: rgba(255,255,255,0.14); color: #f7e8ff; border-color: rgba(255,255,255,0.30); }
-  .lifestyle-band .lifestyle-caption h3 { font-family: 'Manrope', 'Inter', sans-serif; font-size: clamp(1.5rem, 3vw, 2.4rem); color: white; line-height: 1.1; margin-top: 14px; text-shadow: 0 2px 18px rgba(0,0,0,0.35); }
+  .lifestyle-band .lifestyle-caption h3 { font-family: 'Geist', 'Manrope', 'Inter', sans-serif; font-size: clamp(1.5rem, 3vw, 2.4rem); color: white; line-height: 1.1; margin-top: 14px; text-shadow: 0 2px 18px rgba(0,0,0,0.35); }
   .lifestyle-band .lifestyle-caption p { color: rgba(255,255,255,0.92); margin-top: 10px; font-size: clamp(0.95rem, 1.4vw, 1.06rem); text-shadow: 0 1px 12px rgba(0,0,0,0.4); }
   @media (max-width: 600px) {
     .lifestyle-band .lifestyle-frame { aspect-ratio: 4/5; }
@@ -719,7 +719,7 @@
   .scalp-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,15,36,0) 45%, rgba(26,15,36,0.65) 100%); z-index: 1; pointer-events: none; }
   .scalp-card .scalp-label { position: absolute; left: 22px; right: 22px; bottom: 22px; z-index: 2; color: white; }
   .scalp-card .scalp-label .tag { display: inline-block; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 800; padding: 5px 12px; border-radius: 999px; background: rgba(255,255,255,0.16); color: #f7e8ff; backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.20); }
-  .scalp-card .scalp-label h4 { font-family: 'Manrope', sans-serif; font-size: 1.1rem; font-weight: 800; color: white; margin-top: 10px; line-height: 1.2; text-shadow: 0 1px 12px rgba(0,0,0,0.5); }
+  .scalp-card .scalp-label h4 { font-family: 'Geist', 'Manrope', sans-serif; font-size: 1.1rem; font-weight: 800; color: white; margin-top: 10px; line-height: 1.2; text-shadow: 0 1px 12px rgba(0,0,0,0.5); }
 
   /* Step card with image header */
   .step-card.with-image { padding: 0; overflow: hidden; }
@@ -740,7 +740,7 @@
   .vp-image-card.with-photo::before { background: linear-gradient(180deg, rgba(26,15,36,0) 35%, rgba(26,15,36,0.45) 100%); z-index: 1; }
   .vp-image-card.with-photo .timer-overlay { position: absolute; left: 22px; right: 22px; bottom: 22px; z-index: 2; padding: 22px 24px 20px; background: rgba(255,255,255,0.94); backdrop-filter: blur(10px); border-radius: 18px; box-shadow: 0 16px 40px -10px rgba(118,43,164,0.35); border: 1px solid rgba(255,255,255,0.5); }
   .vp-image-card.with-photo .timer-overlay .timer-cap { color: var(--brand-deep); text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.74rem; font-weight: 800; display: block; }
-  .vp-image-card.with-photo .timer-overlay .timer-line { font-family: 'Manrope', sans-serif; font-weight: 900; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1; margin: 8px 0 6px; background: linear-gradient(135deg, var(--brand), var(--brand-darker)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; display: inline-flex; align-items: baseline; gap: 8px; }
+  .vp-image-card.with-photo .timer-overlay .timer-line { font-family: 'Geist', 'Manrope', sans-serif; font-weight: 900; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1; margin: 8px 0 6px; background: linear-gradient(135deg, var(--brand), var(--brand-darker)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; display: inline-flex; align-items: baseline; gap: 8px; }
   .vp-image-card.with-photo .timer-overlay .timer-line small { font-size: 0.4em; color: var(--muted); font-weight: 700; -webkit-text-fill-color: var(--muted); background: none; }
   .vp-image-card.with-photo .timer-overlay .timer-desc { color: var(--ink); font-weight: 600; font-size: 0.92rem; line-height: 1.4; margin-top: 4px; }
 
@@ -752,7 +752,7 @@
   .meet-list { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 18px; }
   .meet-list li { display: flex; gap: 14px; align-items: flex-start; }
   .meet-list .meet-mark { flex: 0 0 28px; height: 28px; border-radius: 50%; background: rgba(175,75,237,0.12); border: 1px solid rgba(175,75,237,0.25); display: grid; place-items: center; color: var(--brand-deep); font-weight: 900; }
-  .meet-list h4 { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 1.04rem; margin-bottom: 4px; color: var(--ink); }
+  .meet-list h4 { font-family: 'Geist', 'Manrope', sans-serif; font-weight: 800; font-size: 1.04rem; margin-bottom: 4px; color: var(--ink); }
   .meet-list p { font-size: 0.96rem; line-height: 1.55; }
 
   /* Power strip split with photo */
