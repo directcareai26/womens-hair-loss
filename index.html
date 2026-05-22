@@ -227,6 +227,56 @@
     radial-gradient(ellipse 55% 55% at 15% 80%, rgba(118,43,164,0.30), transparent 60%); }
   .hero-bg-fade { position: absolute; left: 0; right: 0; bottom: -1px; height: 120px; z-index: 2; pointer-events: none; background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); }
   .hero-inner { position: relative; z-index: 3; text-align: center; max-width: 920px; margin: 0 auto; color: white; }
+  /* === HERO 2-COL LAYOUT (hero copy + embedded quiz card) === */
+  .hero { padding: 80px 0 100px; }
+  .hero-grid { position: relative; z-index: 3; display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; color: white; max-width: 1200px; margin: 0 auto; }
+  @media (max-width: 980px) { .hero-grid { grid-template-columns: 1fr; gap: 36px; max-width: 560px; } }
+  .hero-copy { text-align: left; }
+  @media (max-width: 980px) { .hero-copy { text-align: center; } }
+  .hero-copy h1 { color: white; margin-top: 22px; }
+  .hero-copy h1 .accent { background: linear-gradient(135deg, #e6b6ff 0%, #af4bed 50%, #d185ff 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero-copy .hero-cta-row { justify-content: flex-start; }
+  @media (max-width: 980px) { .hero-copy .hero-cta-row { justify-content: center; } }
+  /* Hide the decorative side hair-accent SVGs in 2-col layout (they overlap the quiz card) */
+  .hero .hair-accent { display: none !important; }
+
+  /* === EMBEDDED HERO QUIZ CARD === */
+  .hero-quiz-wrap { width: 100%; }
+  .hero-quiz-card { position: relative; background: white; border-radius: var(--radius-lg); padding: 28px 26px 22px; box-shadow: 0 30px 60px -16px rgba(40,26,49,0.55), 0 0 0 1px rgba(255,255,255,0.06); color: var(--ink); overflow: hidden; }
+  .hero-quiz-card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px; background: linear-gradient(140deg, rgba(175,75,237,0.55) 0%, rgba(209,133,255,0.35) 40%, rgba(255,255,255,0) 70%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+  @media (max-width: 540px) { .hero-quiz-card { padding: 24px 22px 20px; } }
+
+  .hero-quiz-card .quiz-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .hero-quiz-card .quiz-label { font-family: 'Manrope', sans-serif; font-size: 0.72rem; font-weight: 800; color: var(--brand-deep); text-transform: uppercase; letter-spacing: 0.16em; }
+  .hero-quiz-card .quiz-counter { font-size: 0.78rem; color: var(--muted); font-weight: 600; }
+
+  /* progress dots inside the hero quiz card */
+  .hero-quiz-card .quiz-progress { display: flex; gap: 6px; margin: 0 0 20px; justify-content: flex-start; }
+  .hero-quiz-card .quiz-progress span { height: 5px; flex: 1; max-width: 60px; border-radius: 999px; background: var(--lavender-100); transition: background .25s ease; }
+  .hero-quiz-card .quiz-progress span.done { background: var(--brand); }
+  .hero-quiz-card .quiz-progress span.active { background: var(--brand-deep); }
+
+  .hero-quiz-card .quiz-step { display: none; }
+  .hero-quiz-card .quiz-step.active { display: block; }
+  .hero-quiz-card .quiz-q { font-family: 'Manrope', sans-serif; font-size: 1.05rem; font-weight: 800; margin: 0 0 14px; line-height: 1.25; color: var(--ink); }
+  .hero-quiz-card .quiz-options { display: grid; gap: 8px; }
+  .hero-quiz-card .quiz-option { padding: 12px 14px; border: 1.5px solid var(--lavender-100); background: white; border-radius: 12px; text-align: left; font-size: 0.92rem; font-weight: 600; color: var(--ink); cursor: pointer; transition: all .15s ease; font-family: inherit; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .hero-quiz-card .quiz-option:hover { border-color: var(--brand); background: var(--soft); }
+  .hero-quiz-card .quiz-option.selected { border-color: var(--brand); background: var(--soft); }
+  .hero-quiz-card .quiz-option .opt-arrow { color: var(--brand); opacity: 0; transform: translateX(-4px); transition: all .15s ease; font-weight: 800; flex-shrink: 0; }
+  .hero-quiz-card .quiz-option:hover .opt-arrow, .hero-quiz-card .quiz-option.selected .opt-arrow { opacity: 1; transform: translateX(0); }
+
+  .hero-quiz-card .quiz-finish { display: none; text-align: center; padding: 8px 0 4px; }
+  .hero-quiz-card .quiz-finish.active { display: block; }
+  .hero-quiz-card .quiz-finish .checkmark { width: 52px; height: 52px; border-radius: 50%; background: rgba(20,152,58,0.12); color: var(--green); display: grid; place-items: center; font-size: 1.7rem; margin: 0 auto 12px; border: 2px solid rgba(20,152,58,0.3); font-weight: 900; }
+  .hero-quiz-card .quiz-finish h3 { font-size: 1.18rem; margin-bottom: 8px; color: var(--ink); }
+  .hero-quiz-card .quiz-finish p { color: var(--muted); margin-bottom: 16px; font-size: 0.9rem; }
+
+  .hero-quiz-card .quiz-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; gap: 10px; }
+  .hero-quiz-card .quiz-back { background: transparent; border: none; color: var(--muted); font-size: 0.84rem; cursor: pointer; font-family: inherit; padding: 4px 2px; }
+  .hero-quiz-card .quiz-back:hover { color: var(--brand); }
+  .hero-quiz-card .quiz-disclaimer-mini { font-size: 0.72rem; color: var(--muted); text-align: right; }
+
   .hero-inner h1 { color: white; margin-top: 22px; }
   .hero-inner h1 .accent { background: linear-gradient(135deg, #e6b6ff 0%, #af4bed 50%, #d185ff 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
   .hero-sub { font-size: clamp(1.05rem, 1.5vw, 1.3rem); max-width: 680px; margin: 24px auto 36px; color: rgba(255,255,255,0.85); line-height: 1.5; }
@@ -1036,14 +1086,73 @@
     <path d="M37,178 Q37,210 32,234 Q32,254 40,260 Q48,254 48,234 Q43,210 43,178 Z" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
   </svg>
   <div class="container">
-    <div class="hero-inner">
-      <span class="eyebrow on-dark rise"><span class="dot"></span> Hair Regrowth for Women</span>
-      <h1 class="rise d1">Reclaim <span class="accent">Your Hair.</span></h1>
-      <p class="hero-sub rise d2">Personalized topical and oral protocols built for women, Minoxidil, Spironolactone, Dutasteride topical, Tretinoin, Fluocinolone, Biotin, <strong>prescribed by a US-licensed clinician, compounded in the USA, shipped discreetly.</strong></p>
-      <div class="hero-cta-row rise d3">
-        <a href="https://business.tellescope.com/e/public/form?f=69c1e76a88e5800ffbb0c73b&businessId=67fe9d4248c4ab911e8bdcd6&nextFormId=&publicIdentifier=&customTypeId=&orgIds=&skipMatch=false&autoStart=false&sessionId=&" class="btn btn-primary btn-primary-xl pulse-glow magnetic">See If You Qualify →</a>
-        <a href="#products" class="btn btn-ghost-light btn-primary-xl">See the Protocols</a>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow on-dark rise"><span class="dot"></span> Hair Regrowth for Women</span>
+        <h1 class="rise d1">Reclaim <span class="accent">Your Hair.</span></h1>
+        <p class="hero-sub rise d2">Personalized topical and oral protocols built for women, Minoxidil, Spironolactone, Dutasteride topical, Tretinoin, Fluocinolone, Biotin, <strong>prescribed by a US-licensed clinician, compounded in the USA, shipped discreetly.</strong></p>
+        <div class="hero-cta-row rise d3">
+          <a href="https://business.tellescope.com/e/public/form?f=69c1e76a88e5800ffbb0c73b&businessId=67fe9d4248c4ab911e8bdcd6&nextFormId=&publicIdentifier=&customTypeId=&orgIds=&skipMatch=false&autoStart=false&sessionId=&" class="btn btn-primary btn-primary-xl pulse-glow magnetic">See If You Qualify →</a>
+          <a href="#products" class="btn btn-ghost-light btn-primary-xl">See the Protocols</a>
+        </div>
       </div>
+
+      <!-- Embedded 3-Question Quiz card (moved from standalone section) -->
+      <aside class="hero-quiz-wrap rise d2" aria-label="60-second match">
+        <div class="quiz-wrap hero-quiz-card" id="quiz-wrap">
+          <div class="quiz-head">
+            <span class="quiz-label">60-Second Match</span>
+            <span class="quiz-counter"><span id="quiz-step-num">1</span> of 3</span>
+          </div>
+          <div class="quiz-progress" aria-hidden="true">
+            <span class="active" data-step="1"></span>
+            <span data-step="2"></span>
+            <span data-step="3"></span>
+          </div>
+
+          <div class="quiz-step active" data-step="1">
+            <p class="quiz-q">Where is the hair loss most visible right now?</p>
+            <div class="quiz-options">
+              <button type="button" class="quiz-option" data-answer="part">Widening part / center thinning <span class="opt-arrow">→</span></button>
+              <button type="button" class="quiz-option" data-answer="diffuse">Diffuse thinning across the scalp <span class="opt-arrow">→</span></button>
+              <button type="button" class="quiz-option" data-answer="temples">Temples / hairline thinning <span class="opt-arrow">→</span></button>
+              <button type="button" class="quiz-option" data-answer="shedding">Sudden shedding (handfuls in the shower) <span class="opt-arrow">→</span></button>
+            </div>
+          </div>
+
+          <div class="quiz-step" data-step="2">
+            <p class="quiz-q">What likely triggered the thinning?</p>
+            <div class="quiz-options">
+              <button type="button" class="quiz-option" data-answer="postpartum">Postpartum <span class="opt-arrow">→</span></button>
+              <button type="button" class="quiz-option" data-answer="menopause">Perimenopause or menopause <span class="opt-arrow">→</span></button>
+              <button type="button" class="quiz-option" data-answer="hormones">Stopped birth control / PCOS / hormonal shift <span class="opt-arrow">→</span></button>
+              <button type="button" class="quiz-option" data-answer="genetic">Family pattern / progressive over years <span class="opt-arrow">→</span></button>
+            </div>
+          </div>
+
+          <div class="quiz-step" data-step="3">
+            <p class="quiz-q">Are you open to a daily oral medication?</p>
+            <div class="quiz-options">
+              <button type="button" class="quiz-option" data-answer="oral-yes">Yes, pills are easier <span class="opt-arrow">→</span></button>
+              <button type="button" class="quiz-option" data-answer="topical-only">No, topical only please <span class="opt-arrow">→</span></button>
+              <button type="button" class="quiz-option" data-answer="both">Either, what works best <span class="opt-arrow">→</span></button>
+              <button type="button" class="quiz-option" data-answer="not-sure">Not sure, clinician's pick <span class="opt-arrow">→</span></button>
+            </div>
+          </div>
+
+          <div class="quiz-finish" id="quiz-finish">
+            <div class="checkmark">✓</div>
+            <h3>Great, let's get you matched.</h3>
+            <p>A clinician will prescribe the protocol that matches your pattern, trigger, and goals.</p>
+            <a href="https://business.tellescope.com/e/public/form?f=69c1e76a88e5800ffbb0c73b&businessId=67fe9d4248c4ab911e8bdcd6&nextFormId=&publicIdentifier=&customTypeId=&orgIds=&skipMatch=false&autoStart=false&sessionId=&" class="btn btn-primary btn-primary-xl magnetic" style="width:100%">Continue to Free Evaluation →</a>
+          </div>
+
+          <div class="quiz-actions">
+            <button type="button" class="quiz-back" id="quiz-back" style="visibility:hidden;">← Back</button>
+            <span class="quiz-disclaimer-mini">No charge if you don't qualify · HIPAA-protected</span>
+          </div>
+        </div>
+      </aside>
     </div>
   </div>
   <div class="hero-bg-fade" aria-hidden="true"></div>
@@ -1151,8 +1260,8 @@
   .tnpn-trust-text strong { font-family: 'Manrope', system-ui, sans-serif; font-size: 1rem; font-weight: 800; color: #281A31; letter-spacing: -0.01em; line-height: 1.2; }
   .tnpn-trust-text span { font-size: 0.86rem; color: #5b4d65; line-height: 1.3; }
 
-  .tnpn-cta { display: flex; align-items: center; justify-content: center; gap: 14px; width: 100%; margin-top: 10px; padding: 22px 28px; border-radius: 14px; background: #1f1148; color: white; font-family: 'Manrope', system-ui, sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; text-decoration: none; transition: background .18s ease, transform .15s ease, box-shadow .2s ease; box-shadow: 0 14px 30px -10px rgba(31,17,72,0.40); }
-  .tnpn-cta:hover { background: #110830; transform: translateY(-2px); box-shadow: 0 18px 36px -10px rgba(31,17,72,0.55); }
+  .tnpn-cta { display: flex; align-items: center; justify-content: center; gap: 14px; width: 100%; margin-top: 10px; padding: 22px 28px; border-radius: 14px; background: linear-gradient(135deg, #af4bed 0%, #762ba4 100%); color: white; font-family: 'Manrope', system-ui, sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; text-decoration: none; transition: filter .18s ease, transform .15s ease, box-shadow .2s ease; box-shadow: 0 14px 30px -10px rgba(175,75,237,0.45); }
+  .tnpn-cta:hover { filter: brightness(1.06); transform: translateY(-2px); box-shadow: 0 18px 36px -10px rgba(118,43,164,0.55); }
   .tnpn-cta:focus-visible { outline: 3px solid rgba(175,75,237,0.5); outline-offset: 3px; }
   .tnpn-cta-foot { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 12px 0 0; font-size: 0.92rem; color: #281A31; font-weight: 500; }
   .tnpn-cta-foot svg { flex: 0 0 14px; color: #281A31; }
@@ -1369,69 +1478,6 @@
   </div>
 </section>
 
-<!-- ============ 3-QUESTION QUIZ ============ -->
-<section class="section soft" id="quiz">
-  <div class="container">
-    <div class="section-head" style="margin-bottom:32px;">
-      <span class="eyebrow"><span class="dot"></span> 60-Second Match</span>
-      <h2 style="margin-top:22px;">Which women's hair protocol fits you?</h2>
-      <p>Three quick questions. A clinician reviews your free evaluation and prescribes the match. <strong style="color:var(--ink);">No charge if you don't qualify.</strong></p>
-    </div>
-    <div class="quiz-wrap" id="quiz-wrap">
-      <div class="quiz-head">
-        <div class="quiz-progress" aria-hidden="true">
-          <span class="active" data-step="1"></span>
-          <span data-step="2"></span>
-          <span data-step="3"></span>
-        </div>
-      </div>
-
-      <div class="quiz-step active" data-step="1">
-        <p class="quiz-q">Where is the hair loss most visible right now?</p>
-        <div class="quiz-options">
-          <button type="button" class="quiz-option" data-answer="part">Widening part / center thinning <span class="opt-arrow">→</span></button>
-          <button type="button" class="quiz-option" data-answer="diffuse">Diffuse thinning across the whole scalp <span class="opt-arrow">→</span></button>
-          <button type="button" class="quiz-option" data-answer="temples">Temples / hairline thinning <span class="opt-arrow">→</span></button>
-          <button type="button" class="quiz-option" data-answer="shedding">Sudden shedding (handfuls in the shower) <span class="opt-arrow">→</span></button>
-        </div>
-      </div>
-
-      <div class="quiz-step" data-step="2">
-        <p class="quiz-q">What likely triggered the shedding or thinning?</p>
-        <div class="quiz-options">
-          <button type="button" class="quiz-option" data-answer="postpartum">Postpartum (after pregnancy) <span class="opt-arrow">→</span></button>
-          <button type="button" class="quiz-option" data-answer="menopause">Perimenopause or menopause <span class="opt-arrow">→</span></button>
-          <button type="button" class="quiz-option" data-answer="hormones">Stopped birth control, PCOS, or other hormonal shift <span class="opt-arrow">→</span></button>
-          <button type="button" class="quiz-option" data-answer="genetic">Family pattern / progressive over years <span class="opt-arrow">→</span></button>
-        </div>
-      </div>
-
-      <div class="quiz-step" data-step="3">
-        <p class="quiz-q">Are you open to a daily oral medication?</p>
-        <div class="quiz-options">
-          <button type="button" class="quiz-option" data-answer="oral-yes">Yes, pills are easier than topicals <span class="opt-arrow">→</span></button>
-          <button type="button" class="quiz-option" data-answer="topical-only">No, topical only, please <span class="opt-arrow">→</span></button>
-          <button type="button" class="quiz-option" data-answer="both">Either, I want what works best <span class="opt-arrow">→</span></button>
-          <button type="button" class="quiz-option" data-answer="not-sure">Not sure, I want the clinician to recommend <span class="opt-arrow">→</span></button>
-        </div>
-      </div>
-
-      <div class="quiz-finish" id="quiz-finish">
-        <div class="checkmark">✓</div>
-        <h3>Great, let's get you matched.</h3>
-        <p>A clinician will prescribe the protocol that matches your pattern, trigger, and goals. <strong style="color:var(--ink);">No charge if you don't qualify.</strong></p>
-        <a href="https://business.tellescope.com/e/public/form?f=69c1e76a88e5800ffbb0c73b&businessId=67fe9d4248c4ab911e8bdcd6&nextFormId=&publicIdentifier=&customTypeId=&orgIds=&skipMatch=false&autoStart=false&sessionId=&" class="btn btn-primary btn-primary-xl magnetic">Continue to Free Evaluation →</a>
-      </div>
-
-      <div class="quiz-actions">
-        <button type="button" class="quiz-back" id="quiz-back" style="visibility:hidden;">← Back</button>
-        <span style="font-size:0.8rem; color:var(--muted);"><span id="quiz-step-num">1</span> of 3</span>
-      </div>
-      <p class="quiz-disclaimer">This pre-screen is not a medical diagnosis. Final eligibility is determined by a US-licensed clinician after a full intake review. HIPAA-protected.</p>
-    </div>
-  </div>
-</section>
-
 <!-- ============ VALUE PROP ============ -->
 <section class="section">
   <div class="container">
@@ -1557,7 +1603,6 @@
 <section class="section" id="science">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow"><span class="dot"></span> The result</span>
       <h2 style="margin-top:18px;">A part that's quieter under bathroom light.</h2>
       <p style="margin-top:14px; max-width: 600px; margin-left: auto; margin-right: auto;"><strong style="color:var(--ink)">Density along the part</strong>, fine new hairs filling the gap, scalp showing through less.</p>
     </div>
