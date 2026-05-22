@@ -1080,6 +1080,60 @@
     .pp-card .pc-stats > div:nth-child(odd) { border-right: 1px solid #E9D9F2; }
     .pp-card .pc-stats .num { font-size: 1.3rem; }
   }
+
+  /* ============================================================
+     CRISP PASS — flatten chrome, edge-to-edge bands (Hims/Hers/Ro feel)
+     ============================================================ */
+
+  .pp-card {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    max-width: 1040px !important;
+  }
+  .pp-section { background: linear-gradient(180deg, #ffffff 0%, var(--soft, #fbf5fe) 100%) !important; }
+
+  .prod-card,
+  .adv-card,
+  .qual-col,
+  .ing-explorer,
+  .ing-tab,
+  .triad-row,
+  .vp-image-card,
+  .formula-pill { box-shadow: none !important; }
+
+  .prod-card:hover,
+  .adv-card:hover { box-shadow: 0 8px 22px -12px rgba(118,43,164,0.20) !important; }
+
+  @media (min-width: 721px) {
+    .section { padding: clamp(40px, 4.2vw, 60px) 0 !important; }
+  }
+
+  @media (max-width: 720px) {
+    .section { padding: 28px 0 !important; }
+    .pp-section { padding: 28px 0 !important; }
+
+    .pp-card,
+    .prod-card,
+    .adv-card,
+    .qual-col,
+    .ing-explorer,
+    .triad-row,
+    .vp-image-card,
+    .formula-pill { border-radius: 0 !important; }
+
+    .prod-card,
+    .adv-card,
+    .qual-col {
+      border-left: 0 !important;
+      border-right: 0 !important;
+      box-shadow: none !important;
+    }
+
+    .pp-card { padding-left: 0 !important; padding-right: 0 !important; }
+  }
 </style>
 <section class="pp-section">
   <div class="container">
