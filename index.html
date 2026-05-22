@@ -303,6 +303,18 @@
   /* ============== INGREDIENT EXPLORER ============== */
   .ing-explorer { margin-top: 56px; background: white; border: 1px solid var(--lavender-100); border-radius: var(--radius-lg); padding: clamp(28px, 4vw, 48px); box-shadow: var(--shadow-lg); }
   .ing-tabs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: clamp(32px, 4vw, 48px); }
+  /* Protocol tabs fit 7 across on wide screens, scale down responsively */
+  .proto-tabs { grid-template-columns: repeat(7, 1fr); gap: 10px; }
+  .proto-tabs .ing-tab { padding: 14px 8px 12px; }
+  .proto-tabs .ing-tab-name { font-size: 0.78rem; line-height: 1.1; }
+  .proto-tabs .ing-tab-mg { font-size: 0.62rem; padding: 2px 6px; }
+  .proto-tabs .ing-tab-dot { width: 38px; height: 38px; }
+  @media (max-width: 1100px) { .proto-tabs { grid-template-columns: repeat(4, 1fr); } }
+  @media (max-width: 760px) { .proto-tabs { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 520px) { .proto-tabs { grid-template-columns: repeat(2, 1fr); } }
+  /* Pills row inside the protocol detail panel */
+  .proto-ing-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 18px; }
+  .proto-detail .ing-detail-mg { font-size: clamp(2.4rem, 5vw, 3.4rem); }
   @media (max-width: 860px) { .ing-tabs { grid-template-columns: repeat(3, 1fr); gap: 10px; } }
   @media (max-width: 520px) { .ing-tabs { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
   .ing-tab { background: white; border: 1.5px solid var(--lavender-100); border-radius: 16px; padding: 16px 12px 14px; cursor: pointer; transition: all .2s ease; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; font-family: inherit; }
@@ -315,6 +327,8 @@
   .ing-tab-dot.c3 { background: radial-gradient(circle at 30% 25%, #ffd28a, #d99b1f 70%, #a06700); }
   .ing-tab-dot.c4 { background: radial-gradient(circle at 30% 25%, #b6e0ff, #4a8cff 70%, #1a4dc7); }
   .ing-tab-dot.c5 { background: radial-gradient(circle at 30% 25%, #ffd5d5, #ff6a6a 70%, #a32d2d); }
+  .ing-tab-dot.c6 { background: radial-gradient(circle at 30% 25%, #c8f5d6, #34c759 70%, #1a7a36); }
+  .ing-tab-dot.c7 { background: radial-gradient(circle at 30% 25%, #ffd6e8, #ff5fa2 70%, #9a2961); }
   .ing-tab-name { font-family: 'Geist', 'Manrope', sans-serif; font-weight: 800; font-size: 0.92rem; color: var(--ink); line-height: 1.15; }
   .ing-tab-mg { font-family: 'Geist', 'Manrope', sans-serif; font-size: 0.7rem; color: var(--brand-deep); font-weight: 700; background: rgba(175,75,237,0.10); padding: 2px 8px; border-radius: 999px; }
   .ing-tab.active .ing-tab-mg { background: var(--brand); color: white; }
@@ -329,6 +343,8 @@
   .ing-detail-visual.c3 { background: radial-gradient(circle at 30% 25%, #ffd28a, #d99b1f 60%, #a06700); box-shadow: 0 30px 70px -15px rgba(217,155,31,0.40); }
   .ing-detail-visual.c4 { background: radial-gradient(circle at 30% 25%, #b6e0ff, #4a8cff 60%, #1a4dc7); box-shadow: 0 30px 70px -15px rgba(74,140,255,0.40); }
   .ing-detail-visual.c5 { background: radial-gradient(circle at 30% 25%, #ffd5d5, #ff6a6a 60%, #a32d2d); box-shadow: 0 30px 70px -15px rgba(255,106,106,0.40); }
+  .ing-detail-visual.c6 { background: radial-gradient(circle at 30% 25%, #c8f5d6, #34c759 60%, #1a7a36); box-shadow: 0 30px 70px -15px rgba(52,199,89,0.40); }
+  .ing-detail-visual.c7 { background: radial-gradient(circle at 30% 25%, #ffd6e8, #ff5fa2 60%, #9a2961); box-shadow: 0 30px 70px -15px rgba(255,95,162,0.40); }
   .ing-detail-mg { position: absolute; inset: 0; display: grid; place-items: center; color: white; font-family: 'Geist', 'Manrope', sans-serif; font-weight: 900; font-size: clamp(2rem, 4.4vw, 2.6rem); line-height: 1; text-shadow: 0 6px 18px rgba(0,0,0,0.30); text-align: center; padding: 0 12px; }
 
   .ing-detail-info { animation: ingFade .35s ease; }
@@ -1354,111 +1370,68 @@
   <div class="container">
     <div class="stack-head">
       <span class="eyebrow"><span class="dot"></span> Personalized · Clinician-Prescribed</span>
-      <h2 style="margin-top:22px;">Seven Formulations.<br/><span style="background: linear-gradient(135deg, var(--brand), var(--brand-darker)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">One Built for You.</span></h2>
-      <p>Postpartum shed, perimenopause thinning, PCOS, or family pattern, your DirectCare AI clinician compounds the exact actives at the exact dose your scalp actually needs. Not a one-size women's Minoxidil bottle.</p>
+      <h2 style="margin-top:22px;">Different products that<br/><span style="background: linear-gradient(135deg, var(--brand), var(--brand-darker)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">may be right for you.</span></h2>
+      <p>Each formulation is built around a different trigger. Tap any one to see what's inside, who it's prescribed for, and how it works.</p>
     </div>
-    <div class="prod-grid">
-
-      <div class="prod-card">
-        <span class="num">01</span>
-        <div class="prod-orb c1"></div>
-        <span class="tag">Topical · Women &amp; Men</span>
-        <h3>Minoxidil + Fluocinolone + Tretinoin</h3>
-        <span class="prod-form">Topical solution</span>
-        <div class="doses">
-          <span class="dose-pill">Minoxidil 5%</span>
-          <span class="dose-pill">Fluocinolone 0.01%</span>
-          <span class="dose-pill">Tretinoin 0.005%</span>
-        </div>
-        <p>Our flagship women's topical. Hormone-free. Wakes dormant follicles, calms scalp, deepens absorption, safe across every life stage.</p>
+    <!-- 7-PROTOCOL TABBED EXPLORER (replaces the old card grid + ingredient explorer) -->
+    <div class="ing-explorer proto-explorer" id="proto-explorer">
+      <div class="ing-tabs proto-tabs" role="tablist" aria-label="Hair regrowth protocols">
+        <button type="button" class="ing-tab active" data-proto="1" role="tab" aria-selected="true">
+          <span class="ing-tab-dot c1"></span>
+          <span class="ing-tab-name">Topical Combo</span>
+          <span class="ing-tab-mg">Topical</span>
+        </button>
+        <button type="button" class="ing-tab" data-proto="2" role="tab" aria-selected="false">
+          <span class="ing-tab-dot c2"></span>
+          <span class="ing-tab-name">Dutasteride Topical</span>
+          <span class="ing-tab-mg">Topical</span>
+        </button>
+        <button type="button" class="ing-tab" data-proto="3" role="tab" aria-selected="false">
+          <span class="ing-tab-dot c3"></span>
+          <span class="ing-tab-name">Spironolactone</span>
+          <span class="ing-tab-mg">Oral</span>
+        </button>
+        <button type="button" class="ing-tab" data-proto="4" role="tab" aria-selected="false">
+          <span class="ing-tab-dot c4"></span>
+          <span class="ing-tab-name">Oral Minoxidil</span>
+          <span class="ing-tab-mg">Oral</span>
+        </button>
+        <button type="button" class="ing-tab" data-proto="5" role="tab" aria-selected="false">
+          <span class="ing-tab-dot c5"></span>
+          <span class="ing-tab-name">Oral Combo</span>
+          <span class="ing-tab-mg">Oral</span>
+        </button>
+        <button type="button" class="ing-tab" data-proto="6" role="tab" aria-selected="false">
+          <span class="ing-tab-dot c6"></span>
+          <span class="ing-tab-name">Biotin</span>
+          <span class="ing-tab-mg">Supplement</span>
+        </button>
+        <button type="button" class="ing-tab" data-proto="7" role="tab" aria-selected="false">
+          <span class="ing-tab-dot c7"></span>
+          <span class="ing-tab-name">Ketoconazole</span>
+          <span class="ing-tab-mg">Shampoo</span>
+        </button>
       </div>
-
-      <div class="prod-card">
-        <span class="num">02</span>
-        <div class="prod-orb c3"></div>
-        <span class="tag">Topical · Women &amp; Men</span>
-        <h3>Dutasteride + Minoxidil + Tretinoin</h3>
-        <span class="prod-form">Topical solution</span>
-        <div class="doses">
-          <span class="dose-pill">Dutasteride 0.1%</span>
-          <span class="dose-pill">Minoxidil 5%</span>
-          <span class="dose-pill">Tretinoin 0.025%</span>
+      <div class="ing-detail proto-detail">
+        <div class="ing-detail-visual c1" id="proto-visual" aria-hidden="true">
+          <div class="ing-detail-mg" id="proto-visual-num">01</div>
         </div>
-        <p>For women plateaued on plain Minoxidil. Topical Dutasteride blocks DHT at the follicle, no systemic exposure.</p>
-      </div>
-
-      <div class="prod-card">
-        <span class="num">03</span>
-        <div class="prod-orb c2"></div>
-        <span class="tag">Oral · Women</span>
-        <h3>Spironolactone</h3>
-        <span class="prod-form">Oral tablet</span>
-        <div class="doses">
-          <span class="dose-pill">Spironolactone 50mg</span>
-          <span class="dose-pill">or 100mg</span>
-        </div>
-        <p>The most-studied oral option for hormonal thinning in women. Blocks androgen receptors at the follicle. Dose-matched to your labs.</p>
-      </div>
-
-      <div class="prod-card">
-        <span class="num">04</span>
-        <div class="prod-orb c4"></div>
-        <span class="tag">Oral · Women &amp; Men</span>
-        <h3>Low-Dose Oral Minoxidil</h3>
-        <span class="prod-form">Oral tablet</span>
-        <div class="doses">
-          <span class="dose-pill">Minoxidil 2.5mg</span>
-        </div>
-        <p>One pill, full-scalp coverage. The clinician favorite for diffuse thinning or anyone tired of topical drops.</p>
-      </div>
-
-    </div>
-
-    <!-- 5th product full-width, Women's Oral Quad -->
-    <div class="prod-wide-wrap">
-      <div class="prod-card prod-card--wide">
-        <span class="num">05</span>
-        <div class="prod-orb c1"></div>
-        <div class="prod-wide-body">
-          <span class="tag">Oral Only · Women</span>
-          <h3>Minoxidil + Biotin + Nutrients</h3>
-          <div class="doses">
-            <span class="dose-pill">Minoxidil 1mg oral</span>
-            <span class="dose-pill">Biotin 25mg</span>
-            <span class="dose-pill">Nutrients 100mg</span>
+        <div class="ing-detail-info" id="proto-info" role="tabpanel" aria-live="polite">
+          <span class="ing-detail-tag" id="proto-tag">Topical · Women &amp; Men</span>
+          <h3 class="ing-detail-name" id="proto-name">Minoxidil + Fluocinolone + Tretinoin</h3>
+          <p class="ing-detail-desc" id="proto-desc">Our flagship women's topical. Hormone-free. Three actives in one bottle that wake dormant follicles, calm scalp inflammation, and drive deeper absorption — safe across pre-menopause, perimenopause, and post-menopause.</p>
+          <div class="proto-ing-row" id="proto-ings">
+            <span class="dose-pill">Minoxidil 5%</span>
+            <span class="dose-pill">Fluocinolone 0.01%</span>
+            <span class="dose-pill">Tretinoin 0.005%</span>
           </div>
-          <p>One capsule, three actives. Oral Minoxidil + Biotin + follicle nutrients, the simplest possible women's routine.</p>
+          <div class="ing-detail-meta">
+            <span class="meta-pill"><span class="meta-pill-label">Form</span><span id="proto-form">Topical solution</span></span>
+            <span class="meta-pill"><span class="meta-pill-label">Best for</span><span id="proto-bestfor">First-line · hormone-free</span></span>
+            <span class="meta-pill"><span class="meta-pill-label">Onset</span><span id="proto-onset">8–12 weeks</span></span>
+          </div>
         </div>
       </div>
-    </div>
-
-    <!-- 6th + 7th product row: Biotin + Ketoconazole, uses .prod-grid-2 (responsive 2→1 col) -->
-    <div class="prod-grid prod-grid-2">
-
-      <div class="prod-card">
-        <span class="num">06</span>
-        <div class="prod-orb c3"></div>
-        <span class="tag">Supplement · Women &amp; Men</span>
-        <h3>High-Dose Biotin</h3>
-        <span class="prod-form">Oral supplement</span>
-        <div class="doses">
-          <span class="dose-pill">Biotin 10,000 mcg</span>
-        </div>
-        <p>High-dose B7 to support keratin and follicle health. Pairs with every protocol. <strong style="color:var(--ink)">Free with every 24-week plan.</strong></p>
-      </div>
-
-      <div class="prod-card">
-        <span class="num">07</span>
-        <div class="prod-orb c4"></div>
-        <span class="tag">Shampoo · Women &amp; Men</span>
-        <h3>Ketoconazole 2% Shampoo</h3>
-        <span class="prod-form">Topical shampoo</span>
-        <div class="doses">
-          <span class="dose-pill">Ketoconazole 2%</span>
-        </div>
-        <p>Clinical-strength 2%. Treats dandruff and seborrhea while lowering scalp-level DHT. Use 2 to 3× a week.</p>
-      </div>
-
     </div>
 
     <!-- Shared CTA for all 7 protocols -->
@@ -1467,53 +1440,6 @@
       <a href="#pricing" class="btn btn-ghost btn-primary-xl">See Pricing</a>
       <p class="prod-cta-fine">60-second match · No charge if you don't qualify</p>
     </div>
-
-    <!-- Interactive ingredient explorer -->
-    <div class="ing-explorer" id="ing-explorer">
-      <div class="ing-tabs" role="tablist" aria-label="Ingredient deep dive">
-        <button type="button" class="ing-tab active" data-ing="1" role="tab" aria-selected="true">
-          <span class="ing-tab-dot c1"></span>
-          <span class="ing-tab-name">Spironolactone</span>
-          <span class="ing-tab-mg">50 mg</span>
-        </button>
-        <button type="button" class="ing-tab" data-ing="2" role="tab" aria-selected="false">
-          <span class="ing-tab-dot c2"></span>
-          <span class="ing-tab-name">Minoxidil</span>
-          <span class="ing-tab-mg">5%</span>
-        </button>
-        <button type="button" class="ing-tab" data-ing="3" role="tab" aria-selected="false">
-          <span class="ing-tab-dot c3"></span>
-          <span class="ing-tab-name">Dutasteride</span>
-          <span class="ing-tab-mg">0.1%</span>
-        </button>
-        <button type="button" class="ing-tab" data-ing="4" role="tab" aria-selected="false">
-          <span class="ing-tab-dot c4"></span>
-          <span class="ing-tab-name">Tretinoin</span>
-          <span class="ing-tab-mg">0.025%</span>
-        </button>
-        <button type="button" class="ing-tab" data-ing="5" role="tab" aria-selected="false">
-          <span class="ing-tab-dot c5"></span>
-          <span class="ing-tab-name">Fluocinolone</span>
-          <span class="ing-tab-mg">0.01%</span>
-        </button>
-      </div>
-      <div class="ing-detail">
-        <div class="ing-detail-visual c1" id="ing-visual" aria-hidden="true">
-          <div class="ing-detail-mg" id="ing-visual-mg">50 mg</div>
-        </div>
-        <div class="ing-detail-info" id="ing-info" role="tabpanel" aria-live="polite">
-          <span class="ing-detail-tag" id="ing-tag">Blocks Androgens</span>
-          <h3 class="ing-detail-name" id="ing-name">Spironolactone</h3>
-          <p class="ing-detail-desc" id="ing-desc">An oral anti-androgen that blocks androgen receptors at the follicle, interrupting the hormonal driver of female pattern thinning. Originally a potassium-sparing diuretic; today the most evidence-based oral option for women with androgen-sensitive hair loss.</p>
-          <div class="ing-detail-meta">
-            <span class="meta-pill"><span class="meta-pill-label">Onset</span><span id="ing-onset">3 to 6 months</span></span>
-            <span class="meta-pill"><span class="meta-pill-label">Mechanism</span><span id="ing-mech">Androgen receptor antagonist</span></span>
-            <span class="meta-pill"><span class="meta-pill-label">Form</span><span id="ing-form">Oral tablet</span></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- ============ THE RESULT (scalp close-ups, distilled from the old Science triad) ============ -->
@@ -1949,51 +1875,55 @@
     });
   })();
 
-  /* === Interactive ingredient explorer === */
+  /* === Interactive 7-PROTOCOL EXPLORER === */
   (function() {
-    var explorer = document.getElementById('ing-explorer');
+    var explorer = document.getElementById('proto-explorer');
     if (!explorer) return;
     var data = {
-      1: { tag: "Blocks Androgens", name: "Spironolactone", mg: "50 mg", onset: "3 to 6 months", mech: "Androgen receptor antagonist", form: "Oral tablet", desc: "An oral anti-androgen that blocks androgen receptors at the follicle, interrupting the hormonal driver of female pattern thinning. Originally a potassium-sparing diuretic; today the most evidence-based oral option for women with androgen-sensitive hair loss. Typical clinical range is 50 to 200 mg daily.", color: "c1" },
-      2: { tag: "Wakes Follicles", name: "Minoxidil", mg: "5%", onset: "8 to 12 weeks", mech: "Vasodilator + K+ channel opener", form: "Topical or low-dose oral", desc: "Widens scalp blood vessels and shortens the resting (telogen) phase of the hair cycle, pushing dormant follicles back into active growth. Topical 5% solution is the gold standard for women; low-dose oral Minoxidil (1 to 2.5 mg) is increasingly used by clinicians for diffuse thinning.", color: "c2" },
-      3: { tag: "Topical DHT Block", name: "Dutasteride (topical)", mg: "0.1%", onset: "3 to 6 months", mech: "5α-reductase inhibitor (Type I + II)", form: "Topical solution", desc: "Topical Dutasteride suppresses both Type I and Type II 5-alpha-reductase at the scalp, without the systemic exposure of oral DHT blockers, which are not used in women of reproductive age. Reserved for resistant female pattern thinning under clinician supervision.", color: "c3" },
-      4: { tag: "Deepens Absorption", name: "Tretinoin", mg: "0.025%", onset: "Immediate", mech: "Penetration enhancer", form: "Topical", desc: "A vitamin A derivative that exfoliates the upper skin layer (stratum corneum), increasing how much Minoxidil and other actives actually reach the follicle. Studies show Tretinoin can roughly double Minoxidil's effective penetration.", color: "c4" },
-      5: { tag: "Calms Inflammation", name: "Fluocinolone", mg: "0.01%", onset: "Immediate", mech: "Topical corticosteroid", form: "Topical", desc: "A low-potency topical corticosteroid that calms scalp inflammation and itch, both common with Minoxidil use and both barriers to absorption. Lets you stay on the protocol without scalp irritation derailing you.", color: "c5" }
+      1: { num: "01", tag: "Topical · Women & Men", name: "Minoxidil + Fluocinolone + Tretinoin", desc: "Our flagship women's topical. Hormone-free. Three actives in one bottle that wake dormant follicles, calm scalp inflammation, and drive deeper absorption \u2014 safe across pre-menopause, perimenopause, and post-menopause.", ings: ["Minoxidil 5%", "Fluocinolone 0.01%", "Tretinoin 0.005%"], form: "Topical solution", bestfor: "First-line · hormone-free", onset: "8\u201312 weeks", color: "c1" },
+      2: { num: "02", tag: "Topical · Women & Men", name: "Dutasteride + Minoxidil + Tretinoin", desc: "For women with resistant pattern thinning who've plateaued on plain Minoxidil. Topical Dutasteride suppresses both DHT pathways at the follicle without the systemic exposure of an oral DHT blocker.", ings: ["Dutasteride 0.1%", "Minoxidil 5%", "Tretinoin 0.025%"], form: "Topical solution", bestfor: "Resistant pattern thinning", onset: "3\u20136 months", color: "c2" },
+      3: { num: "03", tag: "Oral · Women", name: "Spironolactone", desc: "The most evidence-based oral option for hormonal pattern thinning in women. Blocks androgen receptors at the follicle and reduces androgen-driven shedding \u2014 a clinician-prescribed daily pill, dose-matched to your labs and goals.", ings: ["Spironolactone 50 mg", "or 100 mg"], form: "Oral tablet", bestfor: "PCOS · perimenopause", onset: "3\u20136 months", color: "c3" },
+      4: { num: "04", tag: "Oral · Women & Men", name: "Low-Dose Oral Minoxidil", desc: "One pill, full-scalp coverage. Low-dose oral Minoxidil has emerged as a clinician favorite for women who can't apply topical daily or whose diffuse thinning needs systemic blood-flow support \u2014 same actives, simpler routine.", ings: ["Minoxidil 2.5 mg"], form: "Oral tablet", bestfor: "Diffuse thinning · simple routine", onset: "8\u201312 weeks", color: "c4" },
+      5: { num: "05", tag: "Oral Only · Women", name: "Minoxidil + Biotin + Nutrients", desc: "One capsule, three actives. Low-dose oral Minoxidil for blood flow, plus Biotin and follicle-supporting nutrients in a single women's-only oral routine \u2014 no topicals, no Spironolactone, just one pill.", ings: ["Minoxidil 1 mg oral", "Biotin 25 mg", "Nutrients 100 mg"], form: "Oral capsule", bestfor: "Simplest oral routine", onset: "8\u201312 weeks", color: "c5" },
+      6: { num: "06", tag: "Supplement · Women & Men", name: "High-Dose Biotin", desc: "High-dose B7 to support keratin synthesis and follicle health. Pairs with every topical and oral protocol. Daily pill, no prescription required, included free with every 24-week plan.", ings: ["Biotin 10,000 mcg"], form: "Oral supplement", bestfor: "Pairs with any protocol", onset: "Ongoing support", color: "c6" },
+      7: { num: "07", tag: "Shampoo · Women & Men", name: "Ketoconazole 2% Shampoo", desc: "Clinical-strength 2% Ketoconazole \u2014 the same active dermatologists prescribe for dandruff, scalp seborrhea, and as an adjunct to lower scalp-level DHT. Used 2\u20133\u00d7 per week alongside your protocol.", ings: ["Ketoconazole 2%"], form: "Topical shampoo", bestfor: "Adjunct · scalp seborrhea", onset: "Immediate", color: "c7" }
     };
     var tabs = explorer.querySelectorAll('.ing-tab');
-    var visual = document.getElementById('ing-visual');
-    var visualMg = document.getElementById('ing-visual-mg');
-    var tag = document.getElementById('ing-tag');
-    var name = document.getElementById('ing-name');
-    var desc = document.getElementById('ing-desc');
-    var onset = document.getElementById('ing-onset');
-    var mech = document.getElementById('ing-mech');
-    var form = document.getElementById('ing-form');
+    var visual = document.getElementById('proto-visual');
+    var visualNum = document.getElementById('proto-visual-num');
+    var tag = document.getElementById('proto-tag');
+    var name = document.getElementById('proto-name');
+    var desc = document.getElementById('proto-desc');
+    var ings = document.getElementById('proto-ings');
+    var form = document.getElementById('proto-form');
+    var bestfor = document.getElementById('proto-bestfor');
+    var onset = document.getElementById('proto-onset');
 
     function select(n) {
       var d = data[n];
       if (!d) return;
       tabs.forEach(function(t) {
-        var on = t.dataset.ing === String(n);
+        var on = t.dataset.proto === String(n);
         t.classList.toggle('active', on);
         t.setAttribute('aria-selected', on ? 'true' : 'false');
       });
-      visual.classList.remove('c1','c2','c3','c4','c5');
+      visual.classList.remove('c1','c2','c3','c4','c5','c6','c7');
       visual.classList.add(d.color);
-      var info = document.getElementById('ing-info');
+      var info = document.getElementById('proto-info');
       info.style.animation = 'none';
       void info.offsetWidth;
       info.style.animation = '';
-      visualMg.textContent = d.mg;
+      visualNum.textContent = d.num;
       tag.textContent = d.tag;
       name.textContent = d.name;
       desc.textContent = d.desc;
-      onset.textContent = d.onset;
-      mech.textContent = d.mech;
+      ings.innerHTML = d.ings.map(function(i){ return '<span class="dose-pill">' + i + '</span>'; }).join('');
       form.textContent = d.form;
+      bestfor.textContent = d.bestfor;
+      onset.textContent = d.onset;
     }
     tabs.forEach(function(t) {
-      t.addEventListener('click', function() { select(parseInt(t.dataset.ing, 10)); });
+      t.addEventListener('click', function() { select(parseInt(t.dataset.proto, 10)); });
     });
   })();
 
