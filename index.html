@@ -1064,6 +1064,55 @@
   </div>
 </section>
 
+<!-- ============ PHYSICIAN PARTNER NETWORK (OpenLoop) ============ -->
+<style>
+  .pp-section { background: linear-gradient(180deg, #ffffff 0%, var(--soft, #fbf5fe) 100%); padding: clamp(36px, 5vw, 60px) 0; }
+  .pp-section .pp-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; background: rgba(175,75,237,0.10); color: #9043bf; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; border: 1px solid rgba(175,75,237,0.20); margin-bottom: 22px; }
+  .pp-section .pp-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: #af4bed; }
+  .pp-section .pp-head { text-align: center; margin-bottom: 22px; }
+  .pp-bar { max-width: 1040px; margin: 0 auto; background: white; border: 1px solid #E9D9F2; border-radius: 28px; padding: 28px 36px; display: grid; grid-template-columns: auto 1fr; gap: 36px; align-items: center; box-shadow: 0 18px 50px -22px rgba(118,43,164,0.20); position: relative; overflow: hidden; }
+  .pp-bar::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #af4bed 0%, #762ba4 50%, #af4bed 100%); }
+  .pp-bar .pp-id { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; flex-shrink: 0; padding-right: 32px; border-right: 1px solid #E9D9F2; }
+  .pp-bar .pp-id-label { font-family: 'Manrope', system-ui, sans-serif; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #9043bf; }
+  .pp-bar .pp-logo { display: block; max-width: 180px; max-height: 48px; height: auto; width: auto; }
+  .pp-bar .pp-stats { display: grid; grid-template-columns: repeat(3, 1fr); align-items: center; }
+  .pp-bar .pp-stats > div { display: flex; flex-direction: column; padding: 0 24px; line-height: 1.1; text-align: left; }
+  .pp-bar .pp-stats > div + div { border-left: 1px solid #E9D9F2; }
+  .pp-bar .pp-stats .num { font-family: 'Manrope', system-ui, sans-serif; font-size: 1.7rem; font-weight: 900; background: linear-gradient(135deg, #af4bed, #762ba4); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.025em; line-height: 1; }
+  .pp-bar .pp-stats .lab { font-size: 0.78rem; color: #5b4d65; margin-top: 6px; font-weight: 600; }
+  @media (max-width: 980px) {
+    .pp-bar { grid-template-columns: 1fr; gap: 22px; padding: 24px 26px; }
+    .pp-bar .pp-id { border-right: 0; border-bottom: 1px solid #E9D9F2; padding: 0 0 20px; align-items: center; width: 100%; }
+    .pp-bar .pp-stats > div { padding: 0 12px; align-items: center; text-align: center; }
+  }
+  @media (max-width: 760px) {
+    .pp-bar { padding: 22px 18px; border-radius: 18px; gap: 18px; }
+    .pp-bar .pp-id { padding-bottom: 18px; }
+    .pp-bar .pp-logo { max-width: 150px; max-height: 40px; }
+    .pp-bar .pp-stats > div { padding: 0 8px; }
+    .pp-bar .pp-stats .num { font-size: 1.2rem; }
+    .pp-bar .pp-stats .lab { font-size: 0.7rem; }
+  }
+</style>
+<section class="pp-section">
+  <div class="container">
+    <div class="pp-head">
+      <span class="pp-eyebrow"><span class="dot"></span> Our Physician Partner Network</span>
+    </div>
+    <div class="pp-bar">
+      <div class="pp-id">
+        <span class="pp-id-label">Our Physician Partner</span>
+        <img src="https://crsurakhmbalgxim.public.blob.vercel-storage.com/646595de48d566b49cabd774_OpenLoop-Logo-002.png" alt="OpenLoop" class="pp-logo" />
+      </div>
+      <div class="pp-stats">
+        <div><span class="num">20,000+</span><span class="lab">Clinicians</span></div>
+        <div><span class="num">250K+</span><span class="lab">Visits / month</span></div>
+        <div><span class="num">50 States</span><span class="lab">Nationwide</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ IS THIS YOU? (QUALIFIER) ============ -->
 <section class="section" id="who">
   <div class="container">
