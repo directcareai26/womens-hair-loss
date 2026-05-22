@@ -1043,75 +1043,110 @@
 <!-- ============ PHYSICIAN PARTNER NETWORK (OpenLoop) ============ -->
 <style>
   .pp-section { background: linear-gradient(180deg, #ffffff 0%, var(--soft, #fbf5fe) 100%); padding: clamp(36px, 5vw, 60px) 0; }
-  .pp-section .pp-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; background: rgba(175,75,237,0.10); color: #9043bf; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; border: 1px solid rgba(175,75,237,0.20); margin-bottom: 22px; }
-  .pp-section .pp-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: #af4bed; }
-  .pp-section .pp-head { text-align: center; margin-bottom: 22px; }
-  .pp-bar { max-width: 1040px; margin: 0 auto; background: white; border: 1px solid #E9D9F2; border-radius: 28px; padding: 28px 36px; display: grid; grid-template-columns: auto 1fr; gap: 36px; align-items: center; box-shadow: 0 18px 50px -22px rgba(118,43,164,0.20); position: relative; overflow: hidden; }
-  .pp-bar::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #af4bed 0%, #762ba4 50%, #af4bed 100%); }
-  .pp-bar .pp-id { display: flex; align-items: center; flex-shrink: 0; padding-right: 28px; border-right: 1px solid #E9D9F2; }
-  .pp-bar .pp-id-label { display: none; }
-  .pp-bar .pp-logo { display: block; max-width: 120px; max-height: 36px; height: auto; width: auto; }
-  .pp-bar .pp-stats { display: grid; grid-template-columns: repeat(3, 1fr); align-items: center; }
-  .pp-bar .pp-stats > div { display: flex; flex-direction: column; padding: 0 24px; line-height: 1.1; text-align: left; }
-  .pp-bar .pp-stats > div + div { border-left: 1px solid #E9D9F2; }
-  .pp-bar .pp-stats .num { font-family: 'Manrope', system-ui, sans-serif; font-size: 1.7rem; font-weight: 900; background: linear-gradient(135deg, #af4bed, #762ba4); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.025em; line-height: 1; }
-  .pp-bar .pp-stats .lab { font-size: 0.78rem; color: #5b4d65; margin-top: 6px; font-weight: 600; }
-  @media (max-width: 980px) {
-    .pp-bar { grid-template-columns: 1fr; gap: 22px; padding: 24px 26px; }
-    .pp-bar .pp-id { border-right: 0; border-bottom: 1px solid #E9D9F2; padding: 0 0 20px; align-items: center; width: 100%; }
-    .pp-bar .pp-stats > div { padding: 0 12px; align-items: center; text-align: center; }
+  /* TRUST ICON BADGES — 4-across top row */
+  .pp-trust-icons { max-width: 1080px; margin: 0 auto 28px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; align-items: start; }
+  .pp-trust-item { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 14px; position: relative; }
+  .pp-trust-item + .pp-trust-item::before { content: ""; position: absolute; left: 0; top: 14px; bottom: 14px; width: 1px; background: #E9D9F2; }
+  .pp-trust-item .ico-circle { width: 64px; height: 64px; border-radius: 50%; background: rgba(175,75,237,0.10); color: #af4bed; display: grid; place-items: center; margin-bottom: 14px; }
+  .pp-trust-item .ico-circle svg { width: 28px; height: 28px; }
+  .pp-trust-item .ti-title { font-family: 'Manrope', system-ui, sans-serif; font-size: 1rem; font-weight: 800; color: #281A31; margin-bottom: 4px; letter-spacing: -0.01em; line-height: 1.2; }
+  .pp-trust-item .ti-sub { font-size: 0.84rem; color: #5b4d65; line-height: 1.35; }
+  @media (max-width: 720px) {
+    .pp-trust-icons { grid-template-columns: repeat(2, 1fr); gap: 22px 0; }
+    .pp-trust-item { padding: 0 10px; }
+    .pp-trust-item + .pp-trust-item::before { display: none; }
+    .pp-trust-item:nth-child(odd) { border-right: 1px solid #E9D9F2; }
+    .pp-trust-item .ico-circle { width: 56px; height: 56px; margin-bottom: 10px; }
+    .pp-trust-item .ico-circle svg { width: 24px; height: 24px; }
+    .pp-trust-item .ti-title { font-size: 0.94rem; }
+    .pp-trust-item .ti-sub { font-size: 0.78rem; }
   }
+  /* PARTNER CARD — large card with header + logo + ratings + stats */
+  .pp-card { max-width: 1040px; margin: 0 auto; background: white; border: 1px solid #E9D9F2; border-radius: 32px; padding: clamp(28px, 4vw, 44px) clamp(24px, 4vw, 48px); box-shadow: 0 18px 50px -16px rgba(118,43,164,0.18); }
+  .pp-card .pc-header { font-family: 'Manrope', system-ui, sans-serif; font-size: clamp(1.3rem, 2.4vw, 1.7rem); font-weight: 800; color: #281A31; text-align: center; letter-spacing: -0.015em; line-height: 1.2; margin: 0 0 22px; }
+  .pp-card .pc-logo { display: flex; justify-content: center; margin-bottom: 18px; }
+  .pp-card .pc-logo img { display: block; max-width: 220px; max-height: 52px; height: auto; width: auto; }
+  .pp-card .pc-desc { max-width: 640px; margin: 0 auto 24px; text-align: center; color: #5b4d65; font-size: 1rem; line-height: 1.6; }
+  .pp-card .pc-divider { height: 1px; background: #E9D9F2; margin: 4px 0 22px; }
+  .pp-card .pc-ratings { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 0; margin-bottom: 22px; }
+  .pp-card .pc-ratings > div { display: flex; align-items: center; justify-content: center; padding: 4px 18px; }
+  .pp-card .pc-ratings > div + div { border-left: 1px solid #E9D9F2; }
+  .pp-card .pc-ratings img { display: block; max-height: 36px; width: auto; max-width: 100%; }
+  .pp-card .pc-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .pp-card .pc-stats > div { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 12px; }
+  .pp-card .pc-stats > div + div { border-left: 1px solid #E9D9F2; }
+  .pp-card .pc-stats .stat-ico { width: 38px; height: 38px; border-radius: 10px; background: rgba(175,75,237,0.10); color: #af4bed; display: grid; place-items: center; margin-bottom: 10px; }
+  .pp-card .pc-stats .num { font-family: 'Manrope', system-ui, sans-serif; font-size: 1.5rem; font-weight: 900; color: #762ba4; line-height: 1; letter-spacing: -0.02em; }
+  .pp-card .pc-stats .lab { font-size: 0.74rem; color: #281A31; font-weight: 700; margin-top: 6px; line-height: 1.25; }
   @media (max-width: 760px) {
-    .pp-bar { padding: 22px 18px; border-radius: 18px; gap: 18px; }
-    .pp-bar .pp-id { padding-bottom: 18px; }
-    .pp-bar .pp-logo { max-width: 110px; max-height: 32px; }
-    .pp-bar .pp-stats > div { padding: 0 8px; }
-    .pp-bar .pp-stats .num { font-size: 1.2rem; }
-    .pp-bar .pp-stats .lab { font-size: 0.7rem; }
+    .pp-card .pc-ratings { grid-template-columns: 1fr; gap: 0; }
+    .pp-card .pc-ratings > div + div { border-left: 0; border-top: 1px solid #E9D9F2; padding-top: 14px; margin-top: 14px; }
+    .pp-card .pc-stats { grid-template-columns: repeat(2, 1fr); gap: 22px 0; }
+    .pp-card .pc-stats > div { padding: 0 8px; }
+    .pp-card .pc-stats > div + div { border-left: 0; }
+    .pp-card .pc-stats > div:nth-child(odd) { border-right: 1px solid #E9D9F2; }
+    .pp-card .pc-stats .num { font-size: 1.3rem; }
   }
-
-  .pp-ratings { max-width: 1040px; margin: 14px auto 0; display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
-  .pp-ratings img { display: block; height: 40px; width: auto; max-width: 200px; }
-  @media (max-width: 540px) { .pp-ratings { gap: 10px; } .pp-ratings img { height: 32px; } }
 </style>
 <section class="pp-section">
   <div class="container">
-    <!-- Trust seals row -->
-    <div class="trust-seal-inner" style="margin: 0 auto 24px; max-width: 1040px;">
-      <div class="seal">
-        <span class="seal-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
-        <span class="seal-text"><strong>LegitScript Certified</strong><span>Verified safe telehealth</span></span>
+    <div class="pp-trust-icons">
+      <div class="pp-trust-item">
+        <span class="ico-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <span class="ti-title">Licensed Clinicians</span>
+        <span class="ti-sub">Licensed in the U.S.</span>
       </div>
-      <div class="seal">
-        <span class="seal-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-        <span class="seal-text"><strong>HIPAA Compliant</strong><span>Encrypted &amp; private</span></span>
+      <div class="pp-trust-item">
+        <span class="ico-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+        <span class="ti-title">Private &amp; Secure</span>
+        <span class="ti-sub">HIPAA compliant</span>
       </div>
-      <div class="seal">
-        <span class="seal-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M10 21v-6h4v6"/></svg></span>
-        <span class="seal-text"><strong>US Licensed Pharmacy</strong><span>Compounded in the USA</span></span>
+      <div class="pp-trust-item">
+        <span class="ico-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <span class="ti-title">Available Nationwide</span>
+        <span class="ti-sub">Care in all 50 states</span>
       </div>
-      <div class="seal">
-        <span class="seal-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-        <span class="seal-text"><strong>Available nationwide</strong><span>Discreet, unmarked shipping</span></span>
-      </div>
-    </div>
-    <!-- OpenLoop partner bar -->
-    <div class="pp-bar">
-      <div class="pp-id">
-        <span class="pp-id-label">Our Physician Partner</span>
-        <img src="https://crsurakhmbalgxim.public.blob.vercel-storage.com/646595de48d566b49cabd774_OpenLoop-Logo-002.png" alt="OpenLoop" class="pp-logo" />
-      </div>
-      <div class="pp-stats">
-        <div><span class="num">20,000+</span><span class="lab">Clinicians</span></div>
-        <div><span class="num">250K+</span><span class="lab">Visits / month</span></div>
-        <div><span class="num">50 States</span><span class="lab">Nationwide</span></div>
+      <div class="pp-trust-item">
+        <span class="ico-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+        <span class="ti-title">Delivered to Your Door</span>
+        <span class="ti-sub">Discreet shipping</span>
       </div>
     </div>
-  
-    <!-- OpenLoop patient ratings (Google + Trustpilot) -->
-    <div class="pp-ratings">
-      <img src="https://crsurakhmbalgxim.public.blob.vercel-storage.com/openloop%20rating%20google.webp" alt="OpenLoop Google reviews rating" loading="lazy" />
-      <img src="https://crsurakhmbalgxim.public.blob.vercel-storage.com/openloop%20rating%20trustpilot.webp" alt="OpenLoop Trustpilot rating" loading="lazy" />
+
+    <div class="pp-card">
+      <h3 class="pc-header">Trusted Nationwide Provider Network</h3>
+      <div class="pc-logo">
+        <img src="https://crsurakhmbalgxim.public.blob.vercel-storage.com/646595de48d566b49cabd774_OpenLoop-Logo-002.png" alt="OpenLoop" loading="lazy" />
+      </div>
+      <p class="pc-desc">Access experienced licensed clinicians across all 50 states. Every treatment request is reviewed by a licensed clinician to determine whether care is right for you.</p>
+      <div class="pc-divider"></div>
+      <div class="pc-ratings">
+        <div><img src="https://crsurakhmbalgxim.public.blob.vercel-storage.com/openloop%20rating%20google.webp" alt="OpenLoop Google reviews rating" loading="lazy" /></div>
+        <div><img src="https://crsurakhmbalgxim.public.blob.vercel-storage.com/openloop%20rating%20trustpilot.webp" alt="OpenLoop Trustpilot rating" loading="lazy" /></div>
+      </div>
+      <div class="pc-divider"></div>
+      <div class="pc-stats">
+        <div>
+          <span class="stat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="num">20,000+</span>
+          <span class="lab">Licensed Clinicians</span>
+        </div>
+        <div>
+          <span class="stat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+          <span class="num">250K+</span>
+          <span class="lab">Patient Visits Monthly</span>
+        </div>
+        <div>
+          <span class="stat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span class="num">50</span>
+          <span class="lab">States Nationwide</span>
+        </div>
+        <div>
+          <span class="stat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-7h3v5z"/><path d="M3 19a2 2 0 0 0 2 2h1v-7H3v5z"/></svg></span>
+          <span class="num">24/7</span>
+          <span class="lab">Patient Support</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
