@@ -104,8 +104,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* Soft pulse for CTAs */
   @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 10px 28px -6px rgba(16,185,129,0.45); }
-    50% { box-shadow: 0 12px 36px -4px rgba(16,185,129,0.70); }
+    0%, 100% { box-shadow: 0 10px 28px -6px rgba(175,75,237,0.45); }
+    50% { box-shadow: 0 12px 36px -4px rgba(175,75,237,0.65); }
   }
   .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
 
@@ -218,8 +218,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* ============== BUTTONS ============== */
   .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 28px; border-radius: 999px; font-weight: 600; font-size: 1rem; letter-spacing: -0.005em; transition: transform .15s ease, box-shadow .2s ease, background .2s ease; cursor: pointer; border: none; }
-  .btn-primary { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; box-shadow: 0 10px 28px -6px rgba(16,185,129,0.45); }
-  .btn-primary:hover { background: linear-gradient(135deg, #34d399 0%, #10b981 100%); transform: translateY(-2px); box-shadow: 0 16px 36px -6px rgba(5,150,105,0.55); }
+  .btn-primary { background: var(--brand); color: white; box-shadow: 0 10px 28px -6px rgba(175,75,237,0.45); }
+  .btn-primary:hover { background: var(--brand-deep); transform: translateY(-2px); box-shadow: 0 16px 36px -6px rgba(144,67,191,0.55); }
   .btn-primary-xl { padding: 20px 38px; font-size: 1.08rem; }
   .btn-ghost { background: rgba(40,26,49,0.04); color: var(--ink); border: 1px solid var(--line); }
   .btn-ghost:hover { background: rgba(40,26,49,0.08); }
@@ -633,7 +633,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .sticky-cta.visible { transform: translateY(0); }
   .sticky-cta-left { display: flex; flex-direction: column; line-height: 1.2; color: white; }
   .sticky-cta-price { font-family: 'Geist', 'Manrope', sans-serif; font-weight: 800; font-size: 1.12rem; }
-  .sticky-cta-price .accent { color: #6ee7b7; }
+  .sticky-cta-price .accent { color: #e6b6ff; }
   .sticky-cta-sub { font-size: 0.78rem; color: rgba(255,255,255,0.65); }
   .sticky-cta .btn { padding: 14px 24px; font-size: 0.92rem; white-space: nowrap; box-shadow: 0 8px 22px -6px rgba(175,75,237,0.5); }
   @media (max-width: 480px) {
@@ -965,6 +965,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .nav-inner { padding-left: 12px !important; padding-right: 12px !important; }
     footer .container, footer .container-px { padding-left: 14px !important; padding-right: 14px !important; }
   }
+
+  /* ========================================================
+     SCOPED EMERALD CTA — only on dark hero, pricing plans,
+     and the sticky bottom mobile bar. Everywhere else is the
+     brand purple so it doesn't read as too-bright on white.
+     ======================================================== */
+  .hero-cta-row .btn-primary,
+  #pricing .btn-primary,
+  .sticky-cta .btn-primary {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    box-shadow: 0 10px 28px -6px rgba(16,185,129,0.45) !important;
+  }
+  .hero-cta-row .btn-primary:hover,
+  #pricing .btn-primary:hover,
+  .sticky-cta .btn-primary:hover {
+    background: linear-gradient(135deg, #34d399 0%, #10b981 100%) !important;
+    box-shadow: 0 16px 36px -6px rgba(5,150,105,0.55) !important;
+  }
+  /* Pulse-glow inside these three zones is emerald-tinted */
+  .hero-cta-row .btn-primary.pulse-glow,
+  #pricing .btn-primary.pulse-glow,
+  .sticky-cta .btn-primary.pulse-glow {
+    animation-name: pulse-glow-emerald;
+  }
+  @keyframes pulse-glow-emerald {
+    0%, 100% { box-shadow: 0 10px 28px -6px rgba(16,185,129,0.45); }
+    50% { box-shadow: 0 12px 36px -4px rgba(16,185,129,0.70); }
+  }
+  .sticky-cta-price .accent { color: #6ee7b7 !important; }
 </style>
 <!-- FlexOffers AdvertiserMax click tracking -->
 <script>
