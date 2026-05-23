@@ -967,26 +967,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 
   /* ========================================================
-     SCOPED EMERALD CTA — only on dark hero, pricing plans,
-     and the sticky bottom mobile bar. Everywhere else is the
-     brand purple so it doesn't read as too-bright on white.
+     SCOPED EMERALD CTA — hero, pricing plans, sticky bottom
+     bar, AND every body section (qualifier, quiz, science,
+     comparison, how-it-works, timeline, etc). Only the nav
+     stays brand purple.
      ======================================================== */
   .hero-cta-row .btn-primary,
   #pricing .btn-primary,
-  .sticky-cta .btn-primary {
+  .sticky-cta .btn-primary,
+  section .btn-primary {
     background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
     box-shadow: 0 10px 28px -6px rgba(16,185,129,0.45) !important;
   }
   .hero-cta-row .btn-primary:hover,
   #pricing .btn-primary:hover,
-  .sticky-cta .btn-primary:hover {
+  .sticky-cta .btn-primary:hover,
+  section .btn-primary:hover {
     background: linear-gradient(135deg, #34d399 0%, #10b981 100%) !important;
     box-shadow: 0 16px 36px -6px rgba(5,150,105,0.55) !important;
   }
-  /* Pulse-glow inside these three zones is emerald-tinted */
+  /* Pulse-glow in any emerald zone is emerald-tinted */
   .hero-cta-row .btn-primary.pulse-glow,
   #pricing .btn-primary.pulse-glow,
-  .sticky-cta .btn-primary.pulse-glow {
+  .sticky-cta .btn-primary.pulse-glow,
+  section .btn-primary.pulse-glow {
     animation-name: pulse-glow-emerald;
   }
   @keyframes pulse-glow-emerald {
