@@ -2599,6 +2599,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       document.querySelectorAll('img[alt="DirectCare AI"]').forEach(function(img){ var t=document.createElement('span'); t.innerHTML=WM; img.replaceWith(t.firstChild); });
       var nl=document.querySelector('.nav-links'); if(nl){ nl.innerHTML='<a class=\"nav-link\" href=\"/for-her\">For Her</a><a class=\"nav-link\" href=\"/for-him\">For Him</a>'; }
       var dr=document.querySelector('#mobile-drawer,.mobile-drawer'); if(dr){ dr.innerHTML='<a href=\"/for-her\">For Her</a><a href=\"/for-him\">For Him</a><a href=\"https://directcareai.portal.tellescope.com/\" style=\"color:#C9A86A;font-weight:700;\">Log in</a>'; }
+      var IH='https://www.directcare.ai';
+      document.querySelectorAll('img,source').forEach(function(el){ ['src','srcset'].forEach(function(a){ var v=el.getAttribute(a); if(v&&v.indexOf('/optimized/')!==-1){ el.setAttribute(a, v.replace(/\/optimized\//g, IH+'/optimized/')); } }); });
       if(document.title.indexOf('Playful Nights')===-1) document.title=document.title.replace(/DirectCare AI/g,'Playful Nights');
     }
     if(document.readyState!=='loading') swap(); else document.addEventListener('DOMContentLoaded', swap);
