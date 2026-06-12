@@ -2584,5 +2584,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }, { passive: true });
 })();
 </script>
+<script>
+/* Playful Nights brand skin — only on playfulnights host (or ?pn=1). DirectCare AI default unchanged. */
+(function(){
+  try{
+    var pn=/playfulnights/i.test(location.hostname) || /[?&]pn=1/.test(location.search);
+    if(!pn) return;
+    document.documentElement.setAttribute('data-brand','pn');
+    var inter=document.createElement('link'); inter.rel='stylesheet'; inter.href='https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap'; document.head.appendChild(inter);
+    var lux=document.createElement('link'); lux.rel='stylesheet'; lux.href='https://playfulnights-home.vercel.app/luxe.css'; document.head.appendChild(lux);
+    var st=document.createElement('style'); st.textContent='.hero-brand,.value-tag,.brand-accent{color:#C9A86A!important;-webkit-text-fill-color:#C9A86A!important;background:none!important;}[class*="card"],[class*="-box"],[class*="panel"],[class*="tnpn"],[class*="option"],[class*="quiz"],[class*="plan"],[class*="step"],[class*="chip"],.vp-image-card{background-color:#1B1422!important;background-image:none!important;border-color:rgba(201,168,106,0.22)!important;}[class*="card"] *,[class*="quiz"] *,[class*="plan"] *,[class*="step"] *,[class*="tnpn"] *,[class*="option"] *,[class*="chip"] *{color:#EDE3D2!important;-webkit-text-fill-color:#EDE3D2!important;background-image:none!important;}[class*="progress"]{background:rgba(201,168,106,0.3)!important;}[class*="progress"]>*,[class*="progress"] [class*="fill"]{background:#C9A86A!important;}[class*="btn"]:not([class*="ghost"]):not([class*="outline"]):not([class*="secondary"]){background:#C9A86A!important;background-image:none!important;color:#1a1208!important;border-color:#C9A86A!important;}'; document.head.appendChild(st);
+    function swap(){
+      var WM='<span class="pn-wordmark"><span class="pn-moon" aria-hidden="true"></span><span class="pn-playful">Playful</span><span class="pn-amp">·</span><span class="pn-nights">Nights</span></span>';
+      document.querySelectorAll('img[alt="DirectCare AI"]').forEach(function(img){ var t=document.createElement('span'); t.innerHTML=WM; img.replaceWith(t.firstChild); });
+      if(document.title.indexOf('Playful Nights')===-1) document.title=document.title.replace(/DirectCare AI/g,'Playful Nights');
+    }
+    if(document.readyState!=='loading') swap(); else document.addEventListener('DOMContentLoaded', swap);
+  }catch(e){}
+})();
+</script>
 </body>
 </html>
